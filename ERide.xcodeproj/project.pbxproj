@@ -7,18 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D022B9F8C30004B412C /* NotificationManager.swift */; };
+		EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D042B9F9C0B004B412C /* MapViewModel.swift */; };
 		EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89508E2B9F44A4008878AA /* ERideApp.swift */; };
 		EA8950912B9F44A4008878AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8950902B9F44A4008878AA /* ContentView.swift */; };
 		EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8950922B9F44A6008878AA /* Assets.xcassets */; };
 		EA8950962B9F44A6008878AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8950952B9F44A6008878AA /* Preview Assets.xcassets */; };
+		EA89509D2B9F44F2008878AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA271D022B9F8C30004B412C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EA271D042B9F9C0B004B412C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		EA271D062B9FA124004B412C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EA89508B2B9F44A4008878AA /* ERide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA89508E2B9F44A4008878AA /* ERideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERideApp.swift; sourceTree = "<group>"; };
 		EA8950902B9F44A4008878AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EA8950922B9F44A6008878AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA8950952B9F44A6008878AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA271D012B9F8C0C004B412C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EA271D022B9F8C30004B412C /* NotificationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		EA8950822B9F44A4008878AA = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +66,12 @@
 		EA89508D2B9F44A4008878AA /* ERide */ = {
 			isa = PBXGroup;
 			children = (
+				EA271D062B9FA124004B412C /* Info.plist */,
+				EA271D012B9F8C0C004B412C /* Managers */,
 				EA89508E2B9F44A4008878AA /* ERideApp.swift */,
-				EA8950902B9F44A4008878AA /* ContentView.swift */,
+				EA89509E2B9F4B32008878AA /* Model */,
+				EA89509F2B9F4B3F008878AA /* Views */,
+				EA8950A02B9F4B52008878AA /* ViewModels */,
 				EA8950922B9F44A6008878AA /* Assets.xcassets */,
 				EA8950942B9F44A6008878AA /* Preview Content */,
 			);
@@ -65,6 +84,30 @@
 				EA8950952B9F44A6008878AA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EA89509E2B9F4B32008878AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EA89509F2B9F4B3F008878AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */,
+				EA8950902B9F44A4008878AA /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EA8950A02B9F4B52008878AA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EA271D042B9F9C0B004B412C /* MapViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA89509D2B9F44F2008878AA /* Launch Screen.storyboard in Resources */,
 				EA8950962B9F44A6008878AA /* Preview Assets.xcassets in Resources */,
 				EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */,
 				EA8950912B9F44A4008878AA /* ContentView.swift in Sources */,
 				EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */,
+				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +316,14 @@
 				DEVELOPMENT_TEAM = Q25PGH827A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ERide/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ERide;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "ERide needs your location to serve you better";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -299,9 +350,14 @@
 				DEVELOPMENT_TEAM = Q25PGH827A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ERide/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ERide;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "ERide needs your location to serve you better";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
