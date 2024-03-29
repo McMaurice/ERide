@@ -9,16 +9,24 @@ import MapKit
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var mapViewModel = MapViewModel()
+    
+    @State private var showSignInView: Bool = true
     
     var body: some View {
-        Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true)
-            .ignoresSafeArea()
-            .tint(Color(.systemBlue))
-            .onAppear {
-                NotificationManager.instance.requestAuthorization()
-                mapViewModel.checkIfLocationServicesIsEnabled()
+        ZStack {
+            NavigationStack {
+                HomeView(showSignInView: $showSignInView)
             }
+        }
+        .onAppear {
+            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            self.showSignInView = authUser == nil
+        }
+        .fullScreenCover(isPresented: $showSignInView) {
+            NavigationStack {
+                AuthenticationView(showSignInView: $showSignInView)
+            }
+        }
     }
 }
 

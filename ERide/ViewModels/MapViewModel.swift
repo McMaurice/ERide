@@ -16,8 +16,8 @@
 import MapKit
 
 enum MapDetails {
-    static let startingLocation = CLLocationCoordinate2D(latitude: 9.0586, longitude: 7.489)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    static let startingLocation = CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015)
 }
 
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
@@ -26,13 +26,11 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     var locationManager: CLLocationManager?
     
     // MARK: Function to check if the users phone location is on
-    func checkIfLocationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager() // calls locationManagerDidChangeAuthorization function
-            locationManager!.delegate = self
-        } else {
-            print("Location is off, turn it on")
-        }
+    func checkIfLocationServicesIsEnabled() {locationManager = CLLocationManager()
+        locationManager!.delegate = self
+
+        // Request authorization status asynchronously
+        locationManager!.requestWhenInUseAuthorization()
     }
     
     // MARK: Function to check if user authorized location for the app
@@ -47,11 +45,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         case .denied:
             print("You have denied this app access to your location, go to settings to change it")
         case .authorizedAlways, .authorizedWhenInUse:
-            if let userLocation = locationManager.location {
-                region = MKCoordinateRegion(center: userLocation.coordinate, span: MapDetails.defaultSpan)
-            } else {
-                print("User location is nil")
-            }
+            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
         @unknown default:
             break
         }
