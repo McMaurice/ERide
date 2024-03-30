@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct EmailSignUpView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
+    @State private var secondPasswordEntry = ""
     @State private var passwordIsGood = false
     @State private var passwordMatch = false
+    @State private var showPassword = false
     @Binding var showSignInView: Bool
     
     
     var body: some View {
-        NavigationStack {
+        VStack {
             VStack {
                 Image("signup")
                     .resizable()
@@ -24,25 +27,25 @@ struct EmailSignUpView: View {
             TextField("Email", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
-                .foregroundColor(.secondary)
+                .foregroundColor(secondaryAccentColor)
                 .cornerRadius(10)
                 .padding(.bottom)
+            
             Section {
-                SecureField("Password", text: $viewModel.password)
-                    .padding()
-                    .background(Color.gray.opacity(0.4))
-                    .foregroundColor(passwordIsGood ? .green : .red)
-                    .cornerRadius(10)
-                
-                SecureField("Confirm Password", text: $viewModel.password)
-                    .padding()
-                    .background(Color.gray.opacity(0.4))
-                    .foregroundColor(passwordMatch ? .green : .red)
-                    .cornerRadius(10)
+                if showPassword {
+                    ShowPasswordView(viewModel: viewModel, secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                    
+                } else {
+                    HidePasswordView(viewModel: viewModel, secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                }
             } footer: {
                 Text("Password must be at least 8 characters long, with atleaste a number and a special character.")
                     .font(.subheadline)
             }
+            .textInputAutocapitalization(.never)
+            .keyboardType(.asciiCapable) // This avoids suggestions bar on the keyboard.
+            .autocorrectionDisabled(true)
+            
             Button {
                 Task {
                     do {
@@ -61,7 +64,7 @@ struct EmailSignUpView: View {
                     }
                 }
             } label: {
-                Text("Sign In")
+                Text("Sign up")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(height: 55)
@@ -72,13 +75,22 @@ struct EmailSignUpView: View {
             .padding(.top)
         }
         .padding()
-        .navigationTitle("Sign up with Email")
+        .onChange(of: viewModel.password) { newValue in
+            passwordIsGood = viewModel.isPasswordGood(password: newValue)
+        }
+        .onChange(of: secondPasswordEntry) { newValue in
+            if newValue == viewModel.password {
+                passwordMatch = true
+            }
+        }
     }
 }
-
-
 struct EmailSignUp_Previews: PreviewProvider {
     static var previews: some View {
         EmailSignUpView(showSignInView: .constant(false))
     }
 }
+
+
+
+

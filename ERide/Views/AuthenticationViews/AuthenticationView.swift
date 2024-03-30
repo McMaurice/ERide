@@ -10,7 +10,6 @@ import SwiftUI
 struct AuthenticationView: View {
     @State private var animateCar: Bool = false
     @Binding var showSignInView: Bool
-    let secondaryAccentColor = Color("SecondaryAccentColor")
     
     var body: some View {
         ZStack {

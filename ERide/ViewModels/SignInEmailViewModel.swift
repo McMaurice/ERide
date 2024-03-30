@@ -32,4 +32,10 @@ final class SignInEmailViewModel: ObservableObject {
         
         try await AuthenticationManager.shared.signInUser(email: email, password: password)
     }
+    
+    func isPasswordGood(password: String) -> Bool {
+        let passwordRegex = "^(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
 }

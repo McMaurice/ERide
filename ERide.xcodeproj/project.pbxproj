@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D022B9F8C30004B412C /* NotificationManager.swift */; };
 		EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D042B9F9C0B004B412C /* MapViewModel.swift */; };
+		EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */; };
+		EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */; };
 		EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062B2BB6D6120068636F /* GlobalConstants.swift */; };
 		EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */; };
 		EA5F06302BB6E7A10068636F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062F2BB6E7A10068636F /* OnboardingView.swift */; };
@@ -34,6 +36,8 @@
 		EA271D022B9F8C30004B412C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EA271D042B9F9C0B004B412C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		EA271D062B9FA124004B412C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPasswordView.swift; sourceTree = "<group>"; };
+		EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidePasswordView.swift; sourceTree = "<group>"; };
 		EA5F062B2BB6D6120068636F /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FederallyButtonsView.swift; sourceTree = "<group>"; };
 		EA5F062F2BB6E7A10068636F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,16 @@
 				EA5F062B2BB6D6120068636F /* GlobalConstants.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		EA3F10472BB784AE00DFD256 /* EmailSignUpViews */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */,
+				EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */,
+				EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */,
+			);
+			path = EmailSignUpViews;
 			sourceTree = "<group>";
 		};
 		EA5F06332BB6EBA60068636F /* OnBoardingViews */ = {
@@ -159,9 +173,9 @@
 		EABBD44B2BB560AD00BFDC06 /* AuthenticationViews */ = {
 			isa = PBXGroup;
 			children = (
-				EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */,
 				EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */,
-				EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */,
+				EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */,
+				EA3F10472BB784AE00DFD256 /* EmailSignUpViews */,
 			);
 			path = AuthenticationViews;
 			sourceTree = "<group>";
@@ -272,7 +286,9 @@
 				EABBD4572BB5652800BFDC06 /* AuthenticationManger.swift in Sources */,
 				EABBD44F2BB5610C00BFDC06 /* HomeView.swift in Sources */,
 				EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */,
+				EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */,
 				EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */,
+				EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */,
 				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,
 				EA5F06302BB6E7A10068636F /* OnboardingView.swift in Sources */,
 			);
