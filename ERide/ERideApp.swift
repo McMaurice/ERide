@@ -11,10 +11,12 @@ import Firebase
 @main
 struct ERideApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var authenticationViewModel: AuthenticationViewModel = AuthenticationViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authenticationViewModel)
         }
     }
 }

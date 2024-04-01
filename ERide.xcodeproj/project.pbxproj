@@ -11,11 +11,13 @@
 		EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D042B9F9C0B004B412C /* MapViewModel.swift */; };
 		EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */; };
 		EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */; };
+		EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF3172BB8BEC700665C3D /* SignInView.swift */; };
+		EA4FF31C2BB8CA8000665C3D /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */; };
 		EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062B2BB6D6120068636F /* GlobalConstants.swift */; };
 		EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */; };
 		EA5F06302BB6E7A10068636F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062F2BB6E7A10068636F /* OnboardingView.swift */; };
 		EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */; };
-		EA5F06352BB6EF7E0068636F /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06342BB6EF7E0068636F /* SignInEmailViewModel.swift */; };
+		EA5F06352BB6EF7E0068636F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */; };
 		EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89508E2B9F44A4008878AA /* ERideApp.swift */; };
 		EA8950912B9F44A4008878AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8950902B9F44A4008878AA /* ContentView.swift */; };
 		EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8950922B9F44A6008878AA /* Assets.xcassets */; };
@@ -23,12 +25,16 @@
 		EA89509D2B9F44F2008878AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */; };
 		EABBD4482BB55A0D00BFDC06 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD4472BB55A0D00BFDC06 /* FirebaseAnalytics */; };
 		EABBD44A2BB55A0D00BFDC06 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD4492BB55A0D00BFDC06 /* FirebaseAnalyticsSwift */; };
-		EABBD44F2BB5610C00BFDC06 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABBD44E2BB5610C00BFDC06 /* HomeView.swift */; };
 		EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */; };
 		EABBD4552BB5645700BFDC06 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABBD4542BB5645700BFDC06 /* MapView.swift */; };
 		EABBD4572BB5652800BFDC06 /* AuthenticationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABBD4562BB5652800BFDC06 /* AuthenticationManger.swift */; };
 		EABBD4592BB567E000BFDC06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EABBD4582BB567E000BFDC06 /* GoogleService-Info.plist */; };
 		EABBD45C2BB56BD100BFDC06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD45B2BB56BD100BFDC06 /* FirebaseAuth */; };
+		EAD65FEE2BB9392D00D53AD6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FED2BB9392D00D53AD6 /* HomeView.swift */; };
+		EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF02BB94AF300D53AD6 /* UserAgreementView.swift */; };
+		EAD65FF32BB94B0800D53AD6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF22BB94B0800D53AD6 /* PrivacyPolicyView.swift */; };
+		EAD65FF52BB94B1700D53AD6 /* CookiePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF42BB94B1700D53AD6 /* CookiePolicyView.swift */; };
+		EAD65FF72BB95B0200D53AD6 /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF62BB95B0200D53AD6 /* PolicyView.swift */; };
 		EAEE87842BA31376001D750D /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAEE87832BA31376001D750D /* GoogleService-Info-2.plist */; };
 /* End PBXBuildFile section */
 
@@ -38,22 +44,28 @@
 		EA271D062B9FA124004B412C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPasswordView.swift; sourceTree = "<group>"; };
 		EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidePasswordView.swift; sourceTree = "<group>"; };
+		EA4FF3172BB8BEC700665C3D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		EA5F062B2BB6D6120068636F /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FederallyButtonsView.swift; sourceTree = "<group>"; };
 		EA5F062F2BB6E7A10068636F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpView.swift; sourceTree = "<group>"; };
-		EA5F06342BB6EF7E0068636F /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
+		EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		EA89508B2B9F44A4008878AA /* ERide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA89508E2B9F44A4008878AA /* ERideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERideApp.swift; sourceTree = "<group>"; };
 		EA8950902B9F44A4008878AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EA8950922B9F44A6008878AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA8950952B9F44A6008878AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		EABBD44E2BB5610C00BFDC06 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		EABBD4542BB5645700BFDC06 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		EABBD4562BB5652800BFDC06 /* AuthenticationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManger.swift; sourceTree = "<group>"; };
 		EABBD4582BB567E000BFDC06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EAD65FED2BB9392D00D53AD6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EAD65FF02BB94AF300D53AD6 /* UserAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreementView.swift; sourceTree = "<group>"; };
+		EAD65FF22BB94B0800D53AD6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		EAD65FF42BB94B1700D53AD6 /* CookiePolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiePolicyView.swift; sourceTree = "<group>"; };
+		EAD65FF62BB95B0200D53AD6 /* PolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyView.swift; sourceTree = "<group>"; };
 		EAEE87832BA31376001D750D /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,10 +103,20 @@
 			path = EmailSignUpViews;
 			sourceTree = "<group>";
 		};
+		EA4FF31A2BB8CA3600665C3D /* LogInViews */ = {
+			isa = PBXGroup;
+			children = (
+				EA4FF3172BB8BEC700665C3D /* SignInView.swift */,
+				EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */,
+			);
+			path = LogInViews;
+			sourceTree = "<group>";
+		};
 		EA5F06332BB6EBA60068636F /* OnBoardingViews */ = {
 			isa = PBXGroup;
 			children = (
 				EA5F062F2BB6E7A10068636F /* OnboardingView.swift */,
+				EABBD44B2BB560AD00BFDC06 /* AuthenticationViews */,
 			);
 			path = OnBoardingViews;
 			sourceTree = "<group>";
@@ -156,7 +178,6 @@
 				EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */,
 				EABBD44D2BB560E900BFDC06 /* HomeViews */,
 				EA5F06332BB6EBA60068636F /* OnBoardingViews */,
-				EABBD44B2BB560AD00BFDC06 /* AuthenticationViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				EA271D042B9F9C0B004B412C /* MapViewModel.swift */,
-				EA5F06342BB6EF7E0068636F /* SignInEmailViewModel.swift */,
+				EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,9 +194,12 @@
 		EABBD44B2BB560AD00BFDC06 /* AuthenticationViews */ = {
 			isa = PBXGroup;
 			children = (
-				EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */,
 				EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */,
+				EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */,
+				EAD65FF62BB95B0200D53AD6 /* PolicyView.swift */,
+				EA4FF31A2BB8CA3600665C3D /* LogInViews */,
 				EA3F10472BB784AE00DFD256 /* EmailSignUpViews */,
+				EAD65FEF2BB94AAA00D53AD6 /* PolicyViews */,
 			);
 			path = AuthenticationViews;
 			sourceTree = "<group>";
@@ -183,7 +207,7 @@
 		EABBD44D2BB560E900BFDC06 /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
-				EABBD44E2BB5610C00BFDC06 /* HomeView.swift */,
+				EAD65FED2BB9392D00D53AD6 /* HomeView.swift */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -193,6 +217,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAD65FEF2BB94AAA00D53AD6 /* PolicyViews */ = {
+			isa = PBXGroup;
+			children = (
+				EAD65FF02BB94AF300D53AD6 /* UserAgreementView.swift */,
+				EAD65FF22BB94B0800D53AD6 /* PrivacyPolicyView.swift */,
+				EAD65FF42BB94B1700D53AD6 /* CookiePolicyView.swift */,
+			);
+			path = PolicyViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,17 +313,23 @@
 				EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */,
 				EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */,
 				EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */,
+				EA4FF31C2BB8CA8000665C3D /* ForgotPasswordView.swift in Sources */,
+				EAD65FF72BB95B0200D53AD6 /* PolicyView.swift in Sources */,
 				EABBD4552BB5645700BFDC06 /* MapView.swift in Sources */,
+				EAD65FEE2BB9392D00D53AD6 /* HomeView.swift in Sources */,
 				EA8950912B9F44A4008878AA /* ContentView.swift in Sources */,
-				EA5F06352BB6EF7E0068636F /* SignInEmailViewModel.swift in Sources */,
+				EA5F06352BB6EF7E0068636F /* AuthenticationViewModel.swift in Sources */,
 				EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */,
 				EABBD4572BB5652800BFDC06 /* AuthenticationManger.swift in Sources */,
-				EABBD44F2BB5610C00BFDC06 /* HomeView.swift in Sources */,
 				EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */,
 				EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */,
 				EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */,
 				EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */,
 				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,
+				EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */,
+				EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */,
+				EAD65FF32BB94B0800D53AD6 /* PrivacyPolicyView.swift in Sources */,
+				EAD65FF52BB94B1700D53AD6 /* CookiePolicyView.swift in Sources */,
 				EA5F06302BB6E7A10068636F /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,27 +5,22 @@
 //  Created by Macmaurice Osuji on 3/11/24.
 //
 
-import MapKit
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var showSignInView: Bool = false
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
-        ZStack {
-            NavigationStack {
-                HomeView(showSignInView: $showSignInView)
+        VStack {
+            if authenticationViewModel.showAuthenticationView {
+                AuthenticationView()
+            } else {
+                HomeView()
             }
         }
         .onAppear {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            self.showSignInView = authUser == nil
-        }
-        .fullScreenCover(isPresented: $showSignInView) {
-            NavigationStack {
-                AuthenticationView(showSignInView: $showSignInView)
-            }
+            self.authenticationViewModel.showAuthenticationView = authUser == nil
         }
     }
 }
@@ -33,5 +28,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AuthenticationViewModel())
     }
 }

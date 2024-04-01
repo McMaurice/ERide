@@ -20,7 +20,7 @@ struct FederallyButtonsView: View {
                .frame(maxWidth: .infinity)
                .padding(.vertical, 20)
                .padding()
-               .background(.ultraThinMaterial)
+               .background(.thinMaterial)
                .clipShape(RoundedRectangle(cornerRadius: 30))
        }
        

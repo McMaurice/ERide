@@ -9,12 +9,12 @@ import SwiftUI
 import Foundation
 
 struct EmailSignUpView: View {
-    @StateObject private var viewModel = SignInEmailViewModel()
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @FocusState private var usernameInFocus: Bool
     @State private var secondPasswordEntry = ""
     @State private var passwordIsGood = false
     @State private var passwordMatch = false
     @State private var showPassword = false
-    @Binding var showSignInView: Bool
     
     
     var body: some View {
@@ -24,7 +24,8 @@ struct EmailSignUpView: View {
                     .resizable()
                     .scaledToFit()
             }
-            TextField("Email", text: $viewModel.email)
+            TextField("Email", text: $authenticationViewModel.email)
+                .focused($usernameInFocus)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .foregroundColor(secondaryAccentColor)
@@ -33,10 +34,10 @@ struct EmailSignUpView: View {
             
             Section {
                 if showPassword {
-                    ShowPasswordView(viewModel: viewModel, secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                    ShowPasswordView(secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
                     
                 } else {
-                    HidePasswordView(viewModel: viewModel, secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                    HidePasswordView(secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
                 }
             } footer: {
                 Text("Password must be at least 8 characters long, with atleaste a number and a special character.")
@@ -49,15 +50,8 @@ struct EmailSignUpView: View {
             Button {
                 Task {
                     do {
-                        try await viewModel.signUp()
-                        showSignInView = false
-                        return
-                    } catch {
-                        
-                    }
-                    do {
-                        try await viewModel.signIn()
-                        showSignInView = false
+                        try await authenticationViewModel.signUpWithEmail()
+                        authenticationViewModel.showAuthenticationView = false
                         return
                     } catch {
                         
@@ -75,11 +69,15 @@ struct EmailSignUpView: View {
             .padding(.top)
         }
         .padding()
-        .onChange(of: viewModel.password) { newValue in
-            passwordIsGood = viewModel.isPasswordGood(password: newValue)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.usernameInFocus = true}
+        }
+        .onChange(of: authenticationViewModel.password) { newValue in
+            passwordIsGood = authenticationViewModel.isPasswordGood(password: newValue)
         }
         .onChange(of: secondPasswordEntry) { newValue in
-            if newValue == viewModel.password {
+            if newValue == authenticationViewModel.password {
                 passwordMatch = true
             }
         }
@@ -87,7 +85,8 @@ struct EmailSignUpView: View {
 }
 struct EmailSignUp_Previews: PreviewProvider {
     static var previews: some View {
-        EmailSignUpView(showSignInView: .constant(false))
+        EmailSignUpView()
+            .environmentObject(AuthenticationViewModel())
     }
 }
 

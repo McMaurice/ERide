@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HidePasswordView: View {
-    @ObservedObject var viewModel: SignInEmailViewModel
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @Binding var secondPasswordEntry: String
     @Binding var showPassword: Bool
     @Binding var passwordMatch: Bool
@@ -17,8 +17,8 @@ struct HidePasswordView: View {
     var body: some View {
         VStack {
             HStack {
-                SecureField("Password", text: $viewModel.password)
-                if !viewModel.password.isEmpty {
+                SecureField("Password", text: $authenticationViewModel.password)
+                if !authenticationViewModel.password.isEmpty {
                     Image(systemName: showPassword ? "eye" : "eye.slash")
                         .foregroundColor(Color.gray)
                         .onTapGesture {
@@ -55,6 +55,7 @@ struct HidePasswordView: View {
 
 struct HidePasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        EmailSignUpView(showSignInView: .constant(false))
+        EmailSignUpView()
+            .environmentObject(AuthenticationViewModel())
     }
 }
