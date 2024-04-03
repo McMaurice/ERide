@@ -23,6 +23,8 @@
 		EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8950922B9F44A6008878AA /* Assets.xcassets */; };
 		EA8950962B9F44A6008878AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8950952B9F44A6008878AA /* Preview Assets.xcassets */; };
 		EA89509D2B9F44F2008878AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */; };
+		EA9199F82BBA9D3300E804A7 /* PolicyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9199F72BBA9D3300E804A7 /* PolicyModels.swift */; };
+		EA9199FD2BBAFAB600E804A7 /* JsonBundleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9199FC2BBAFAB600E804A7 /* JsonBundleDecoder.swift */; };
 		EABBD4482BB55A0D00BFDC06 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD4472BB55A0D00BFDC06 /* FirebaseAnalytics */; };
 		EABBD44A2BB55A0D00BFDC06 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD4492BB55A0D00BFDC06 /* FirebaseAnalyticsSwift */; };
 		EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */; };
@@ -35,7 +37,9 @@
 		EAD65FF32BB94B0800D53AD6 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF22BB94B0800D53AD6 /* PrivacyPolicyView.swift */; };
 		EAD65FF52BB94B1700D53AD6 /* CookiePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF42BB94B1700D53AD6 /* CookiePolicyView.swift */; };
 		EAD65FF72BB95B0200D53AD6 /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF62BB95B0200D53AD6 /* PolicyView.swift */; };
-		EAEE87842BA31376001D750D /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAEE87832BA31376001D750D /* GoogleService-Info-2.plist */; };
+		EAFDCA7F2BBBFA1B00D75719 /* userAgreement.json in Resources */ = {isa = PBXBuildFile; fileRef = EAFDCA7E2BBBFA1B00D75719 /* userAgreement.json */; };
+		EAFDCA852BBC068500D75719 /* privacyPolicy.json in Resources */ = {isa = PBXBuildFile; fileRef = EAFDCA842BBC068500D75719 /* privacyPolicy.json */; };
+		EAFDCA872BBC06A600D75719 /* cookiePolicy.json in Resources */ = {isa = PBXBuildFile; fileRef = EAFDCA862BBC06A600D75719 /* cookiePolicy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,8 @@
 		EA8950922B9F44A6008878AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA8950952B9F44A6008878AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EA89509C2B9F44F2008878AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		EA9199F72BBA9D3300E804A7 /* PolicyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyModels.swift; path = ERide/Model/PolicyModels.swift; sourceTree = SOURCE_ROOT; };
+		EA9199FC2BBAFAB600E804A7 /* JsonBundleDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDecoder.swift; sourceTree = "<group>"; };
 		EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		EABBD4542BB5645700BFDC06 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		EABBD4562BB5652800BFDC06 /* AuthenticationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManger.swift; sourceTree = "<group>"; };
@@ -66,7 +72,9 @@
 		EAD65FF22BB94B0800D53AD6 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		EAD65FF42BB94B1700D53AD6 /* CookiePolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiePolicyView.swift; sourceTree = "<group>"; };
 		EAD65FF62BB95B0200D53AD6 /* PolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyView.swift; sourceTree = "<group>"; };
-		EAEE87832BA31376001D750D /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		EAFDCA7E2BBBFA1B00D75719 /* userAgreement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userAgreement.json; sourceTree = "<group>"; };
+		EAFDCA842BBC068500D75719 /* privacyPolicy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = privacyPolicy.json; sourceTree = "<group>"; };
+		EAFDCA862BBC06A600D75719 /* cookiePolicy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cookiePolicy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,13 +152,15 @@
 				EABBD4582BB567E000BFDC06 /* GoogleService-Info.plist */,
 				EA271D062B9FA124004B412C /* Info.plist */,
 				EA89508E2B9F44A4008878AA /* ERideApp.swift */,
+				EA9199F42BBA9BE200E804A7 /* JsonFiles */,
+				EA9199FB2BBAFA7B00E804A7 /* Extensions */,
+				EA919A0F2BBB237700E804A7 /* Resources */,
 				EA271D012B9F8C0C004B412C /* Managers */,
 				EA89509E2B9F4B32008878AA /* Model */,
 				EA89509F2B9F4B3F008878AA /* Views */,
 				EA8950A02B9F4B52008878AA /* ViewModels */,
 				EA8950922B9F44A6008878AA /* Assets.xcassets */,
 				EA8950942B9F44A6008878AA /* Preview Content */,
-				EAEE87832BA31376001D750D /* GoogleService-Info-2.plist */,
 			);
 			path = ERide;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 		EA89509E2B9F4B32008878AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EA9199F72BBA9D3300E804A7 /* PolicyModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +200,31 @@
 				EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EA9199F42BBA9BE200E804A7 /* JsonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EAFDCA7E2BBBFA1B00D75719 /* userAgreement.json */,
+				EAFDCA842BBC068500D75719 /* privacyPolicy.json */,
+				EAFDCA862BBC06A600D75719 /* cookiePolicy.json */,
+			);
+			path = JsonFiles;
+			sourceTree = "<group>";
+		};
+		EA9199FB2BBAFA7B00E804A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EA9199FC2BBAFAB600E804A7 /* JsonBundleDecoder.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EA919A0F2BBB237700E804A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EABBD44B2BB560AD00BFDC06 /* AuthenticationViews */ = {
@@ -295,10 +331,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFDCA7F2BBBFA1B00D75719 /* userAgreement.json in Resources */,
+				EAFDCA872BBC06A600D75719 /* cookiePolicy.json in Resources */,
 				EA89509D2B9F44F2008878AA /* Launch Screen.storyboard in Resources */,
+				EAFDCA852BBC068500D75719 /* privacyPolicy.json in Resources */,
 				EA8950962B9F44A6008878AA /* Preview Assets.xcassets in Resources */,
 				EABBD4592BB567E000BFDC06 /* GoogleService-Info.plist in Resources */,
-				EAEE87842BA31376001D750D /* GoogleService-Info-2.plist in Resources */,
 				EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA9199F82BBA9D3300E804A7 /* PolicyModels.swift in Sources */,
 				EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */,
 				EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */,
 				EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */,
@@ -325,6 +364,7 @@
 				EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */,
 				EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */,
 				EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */,
+				EA9199FD2BBAFAB600E804A7 /* JsonBundleDecoder.swift in Sources */,
 				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,
 				EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */,
 				EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */,

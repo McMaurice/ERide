@@ -11,11 +11,13 @@ import Foundation
 struct EmailSignUpView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @FocusState private var usernameInFocus: Bool
+    
+    @State private var emailField = ""
+    @State private var passwordField = ""
     @State private var secondPasswordEntry = ""
     @State private var passwordIsGood = false
     @State private var passwordMatch = false
     @State private var showPassword = false
-    
     
     var body: some View {
         VStack {
@@ -24,24 +26,25 @@ struct EmailSignUpView: View {
                     .resizable()
                     .scaledToFit()
             }
-            TextField("Email", text: $authenticationViewModel.email)
-                .focused($usernameInFocus)
-                .padding()
-                .background(Color.gray.opacity(0.4))
-                .foregroundColor(secondaryAccentColor)
-                .cornerRadius(10)
-                .padding(.bottom)
-            
             Section {
-                if showPassword {
-                    ShowPasswordView(secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
-                    
-                } else {
-                    HidePasswordView(secondPasswordEntry: $secondPasswordEntry, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                TextField("Email", text: $emailField)
+                    .focused($usernameInFocus)
+                    .padding()
+                    .background(Color.gray.opacity(0.4))
+                    .cornerRadius(10)
+                    .padding(.bottom)
+                
+                Section {
+                    if showPassword {
+                        ShowPasswordView(secondPasswordEntry: $secondPasswordEntry, passwordField: $passwordField, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                        
+                    } else {
+                        HidePasswordView(secondPasswordEntry: $secondPasswordEntry, passwordField: $passwordField, showPassword: $showPassword, passwordMatch: $passwordMatch, passwordIsGood: $passwordIsGood)
+                    }
+                } footer: {
+                    Text("Password must be at least 8 characters long, with atleaste a number and a special character.")
+                        .font(.subheadline)
                 }
-            } footer: {
-                Text("Password must be at least 8 characters long, with atleaste a number and a special character.")
-                    .font(.subheadline)
             }
             .textInputAutocapitalization(.never)
             .keyboardType(.asciiCapable) // This avoids suggestions bar on the keyboard.
@@ -73,11 +76,11 @@ struct EmailSignUpView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.usernameInFocus = true}
         }
-        .onChange(of: authenticationViewModel.password) { newValue in
+        .onChange(of: passwordField) { newValue in
             passwordIsGood = authenticationViewModel.isPasswordGood(password: newValue)
         }
         .onChange(of: secondPasswordEntry) { newValue in
-            if newValue == authenticationViewModel.password {
+            if newValue == passwordField {
                 passwordMatch = true
             }
         }

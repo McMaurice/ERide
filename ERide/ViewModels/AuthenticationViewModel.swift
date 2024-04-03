@@ -14,6 +14,7 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var password = ""
     @Published var showAuthenticationView = true
     
+    
     func signUpWithEmail() async throws {
         guard !email.isEmpty, !password.isEmpty else {
             // add any alerts

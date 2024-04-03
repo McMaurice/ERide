@@ -10,6 +10,9 @@ import SwiftUI
 struct SignInView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @FocusState private var usernameInFocus: Bool
+    
+    @State private var emailField = ""
+    @State private var passwordField = ""
     @State private var animateView = false
     @State private var showPassword = false
     
@@ -21,7 +24,7 @@ struct SignInView: View {
                 .offset(y: -50)
             
             VStack(spacing: 15) {
-                TextField("Email", text: $authenticationViewModel.email)
+                TextField("Email", text: $emailField)
                     .focused($usernameInFocus)
                     .padding()
                     .background(Color.gray.opacity(0.4))
@@ -30,7 +33,7 @@ struct SignInView: View {
                 VStack {
                     if showPassword {
                         HStack {
-                            TextField("Password", text: $authenticationViewModel.password)
+                            TextField("Password", text: $passwordField)
                             if !authenticationViewModel.password.isEmpty {
                                 Image(systemName: showPassword ? "eye" : "eye.slash")
                                     .foregroundColor(Color.gray)
@@ -41,7 +44,7 @@ struct SignInView: View {
                         }
                     } else {
                         HStack {
-                            SecureField("Password", text: $authenticationViewModel.password)
+                            SecureField("Password", text: $passwordField)
                             if !authenticationViewModel.password.isEmpty {
                                 Image(systemName: showPassword ? "eye" : "eye.slash")
                                     .foregroundColor(Color.gray)
@@ -63,6 +66,8 @@ struct SignInView: View {
             .autocorrectionDisabled(true)
             
             Button {
+                authenticationViewModel.email = emailField
+                authenticationViewModel.password = passwordField
                 Task {
                     do {
                         try await authenticationViewModel.signInWithEmail()
@@ -97,7 +102,6 @@ struct SignInView: View {
             .onDisappear {
                 animateView = false
             }
-            //.navigationBarBackButtonHidden(true)
             .navigationTitle("Welcome back!")
             .navigationBarTitleDisplayMode(.large)
             Spacer()

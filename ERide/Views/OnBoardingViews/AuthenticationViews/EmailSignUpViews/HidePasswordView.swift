@@ -10,6 +10,7 @@ import SwiftUI
 struct HidePasswordView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @Binding var secondPasswordEntry: String
+    @Binding var passwordField: String
     @Binding var showPassword: Bool
     @Binding var passwordMatch: Bool
     @Binding var passwordIsGood: Bool
@@ -17,8 +18,8 @@ struct HidePasswordView: View {
     var body: some View {
         VStack {
             HStack {
-                SecureField("Password", text: $authenticationViewModel.password)
-                if !authenticationViewModel.password.isEmpty {
+                SecureField("Password", text: $passwordField)
+                if !passwordField.isEmpty {
                     Image(systemName: showPassword ? "eye" : "eye.slash")
                         .foregroundColor(Color.gray)
                         .onTapGesture {

@@ -9,16 +9,20 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @FocusState private var usernameInFocus: Bool
+    @State private var emailField = ""
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                TextField("Email", text: $authenticationViewModel.email)
+                TextField("Email", text: $emailField)
+                    .focused($usernameInFocus)
                     .padding()
                     .background(Color.gray.opacity(0.4))
                     .cornerRadius(10)
                 
                 Button {
+                    authenticationViewModel.email = emailField
 //                    Task {
 //                        do {
 //                            try await authenticationViewModel.forgotPassword()
@@ -39,6 +43,10 @@ struct ForgotPasswordView: View {
             }
             .padding()
             .navigationTitle("Reset your password")
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.usernameInFocus = true}
+            }
             Spacer()
         }
     }
