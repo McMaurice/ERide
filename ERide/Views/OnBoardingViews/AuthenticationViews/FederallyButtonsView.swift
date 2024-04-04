@@ -12,8 +12,11 @@ struct FederallyButtonsView: View {
     var body: some View {
         VStack(spacing: 20) {
                    signInButton(imageName: "apple", buttonText: "Continue with Apple", action: signInWithApple)
+                .shadow(radius: 10)
                    signInButton(imageName: "google", buttonText: "Continue with Google", action: signInWithGoogle)
+                .shadow(radius: 10)
                    signInButton(imageName: "facebook", buttonText: "Continue with Facebook", action: signInWithFacebook)
+                .shadow(radius: 10)
                }
                .foregroundColor(.white)
                .font(.system(size: 20, weight: .semibold, design: .rounded))
@@ -22,6 +25,7 @@ struct FederallyButtonsView: View {
                .padding()
                .background(.thinMaterial)
                .clipShape(RoundedRectangle(cornerRadius: 30))
+               .shadow(radius: 15)
        }
        
     func signInButton(imageName: String, buttonText: String, action: @escaping () -> Void) -> some View {

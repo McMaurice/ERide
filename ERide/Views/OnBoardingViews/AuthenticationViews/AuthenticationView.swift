@@ -31,11 +31,20 @@ struct AuthenticationView: View {
                     FederallyButtonsView()
                     
                     VStack {
-                        Text("or")
-                            .foregroundColor(.white)
-                            .font(.subheadline.bold())
-                            .padding()
-                        
+                        ZStack {
+                            HStack(spacing: 40) {
+                                Rectangle()
+                                    .frame(width: 150, height: 1.5)
+                                    .foregroundColor(.white.opacity(0.4))
+                                Rectangle()
+                                    .frame(width: 150, height: 1.5)
+                                    .foregroundColor(.white.opacity(0.4))
+                            }
+                            Text("or")
+                                .foregroundColor(.white)
+                                .font(.subheadline.bold())
+                                .padding()
+                        }
                         NavigationLink {
                             EmailSignUpView()
                         } label: {
@@ -51,6 +60,7 @@ struct AuthenticationView: View {
                     }
                     HStack {
                         Text("Already have an account?")
+                            .foregroundColor(.white)
                         NavigationLink("Sign in.") {
                             SignInView()
                         }

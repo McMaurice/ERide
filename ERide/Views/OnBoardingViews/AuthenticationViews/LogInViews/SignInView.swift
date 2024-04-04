@@ -10,103 +10,86 @@ import SwiftUI
 struct SignInView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @FocusState private var usernameInFocus: Bool
-    
     @State private var emailField = ""
     @State private var passwordField = ""
     @State private var animateView = false
-    @State private var showPassword = false
+    @State private var showSheet = false
     
     var body: some View {
         NavigationStack {
-            Image("logo")
-                .resizable()
-                .scaledToFit()
-                .offset(y: -50)
-            
-            VStack(spacing: 15) {
-                TextField("Email", text: $emailField)
-                    .focused($usernameInFocus)
-                    .padding()
-                    .background(Color.gray.opacity(0.4))
-                    .cornerRadius(10)
-                
+            VStack {
                 VStack {
-                    if showPassword {
-                        HStack {
-                            TextField("Password", text: $passwordField)
-                            if !authenticationViewModel.password.isEmpty {
-                                Image(systemName: showPassword ? "eye" : "eye.slash")
-                                    .foregroundColor(Color.gray)
-                                    .onTapGesture {
-                                        showPassword.toggle()
-                                    }
-                            }
-                        }
-                    } else {
-                        HStack {
-                            SecureField("Password", text: $passwordField)
-                            if !authenticationViewModel.password.isEmpty {
-                                Image(systemName: showPassword ? "eye" : "eye.slash")
-                                    .foregroundColor(Color.gray)
-                                    .onTapGesture {
-                                        showPassword.toggle()
-                                    }
-                            }
-                        }
+                    Image("log_in")
+                        .resizable()
+                        .scaledToFit()
+                    VStack(spacing: 15) {
+                        EmailFieldView(emailField: $emailField)
+                        
+                        PasswordFieldView(passwordField: $passwordField)
                     }
+                    .padding(.bottom)
+                    .offset(x: animateView ? 0 : 350)
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.asciiCapable) // This avoids suggestions bar on the keyboard.
+                    .autocorrectionDisabled(true)
+                    
+                    Button {
+                        authenticationViewModel.email = emailField
+                        authenticationViewModel.password = passwordField
+                        Task {
+                            do {
+                                try await authenticationViewModel.signInWithEmail()
+                                authenticationViewModel.showAuthenticationView = false
+                                return
+                            } catch {
+                                
+                            }
+                        }
+                    } label: {
+                        Text("Log In")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(height: 55)
+                            .frame(maxWidth: .infinity)
+                            .background(.blue)
+                            .cornerRadius(20)
+                            .shadow(radius: 15)
+                    }
+                    HStack {
+                        Text("Forgot your password?")
+                        Text("Reset password.")
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                showSheet.toggle()
+                            }
+                    }
+                }
+                .padding(.top)
+                .navigationTitle("Welcome back!")
+                .navigationBarTitleDisplayMode(.large)
+                .background {
+                    ShapesView()
+                        .ignoresSafeArea()
+                        
                 }
                 .padding()
-                .background(Color.gray.opacity(0.4))
-                .cornerRadius(10)
-            }
-            .padding(.bottom)
-            .offset(x: animateView ? 0 : 350)
-            .textInputAutocapitalization(.never)
-            .keyboardType(.asciiCapable) // This avoids suggestions bar on the keyboard.
-            .autocorrectionDisabled(true)
-            
-            Button {
-                authenticationViewModel.email = emailField
-                authenticationViewModel.password = passwordField
-                Task {
-                    do {
-                        try await authenticationViewModel.signInWithEmail()
-                        authenticationViewModel.showAuthenticationView = false
-                        return
-                    } catch {
-                        
+                .onAppear {
+                    authenticationViewModel.newUser = false
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.4)) {
+                        animateView = true
                     }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.usernameInFocus = true}
                 }
-            } label: {
-                Text("Log In")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-            HStack {
-                Text("Forgot your password?")
-                NavigationLink("Reset password.") {
+                .onDisappear {
+                    authenticationViewModel.newUser = true
+                    //animateView = false
+                }
+                .sheet(isPresented: $showSheet) {
                     ForgotPasswordView()
                 }
             }
-            .onAppear {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.4)) {
-                    animateView = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.usernameInFocus = true}
-            }
-            .onDisappear {
-                animateView = false
-            }
-            .navigationTitle("Welcome back!")
-            .navigationBarTitleDisplayMode(.large)
-            Spacer()
         }
-        .padding()
     }
 }
 

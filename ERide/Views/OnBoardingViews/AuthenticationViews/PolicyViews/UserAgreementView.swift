@@ -24,7 +24,7 @@ struct UserAgreementView: View {
             .listStyle(.plain)
             .navigationBarTitle("User Agreement")
             .onAppear {
-                userAgreements = JSONDecoderHelper.decode(fileName: "agreement", fileExtension: "json", type: [UserAgreement].self) ?? []
+                userAgreements = JSONDecoderHelper.decode(fileName: "userAgreement", fileExtension: "json", type: [UserAgreement].self) ?? userAgreements
             }
         }
     }

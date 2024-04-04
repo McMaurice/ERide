@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D022B9F8C30004B412C /* NotificationManager.swift */; };
 		EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA271D042B9F9C0B004B412C /* MapViewModel.swift */; };
-		EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */; };
-		EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */; };
+		EA2CF4482BBE931200CA0579 /* ShapesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2CF4472BBE931200CA0579 /* ShapesView.swift */; };
+		EA2CF44A2BBE9EA800CA0579 /* EmailFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2CF4492BBE9EA800CA0579 /* EmailFieldView.swift */; };
+		EA3F10492BB7860100DFD256 /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */; };
+		EA3F104B2BB7861600DFD256 /* ConfirmPasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */; };
 		EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF3172BB8BEC700665C3D /* SignInView.swift */; };
 		EA4FF31C2BB8CA8000665C3D /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */; };
 		EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062B2BB6D6120068636F /* GlobalConstants.swift */; };
@@ -46,8 +48,10 @@
 		EA271D022B9F8C30004B412C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EA271D042B9F9C0B004B412C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		EA271D062B9FA124004B412C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPasswordView.swift; sourceTree = "<group>"; };
-		EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidePasswordView.swift; sourceTree = "<group>"; };
+		EA2CF4472BBE931200CA0579 /* ShapesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesView.swift; sourceTree = "<group>"; };
+		EA2CF4492BBE9EA800CA0579 /* EmailFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailFieldView.swift; sourceTree = "<group>"; };
+		EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
+		EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordFieldView.swift; sourceTree = "<group>"; };
 		EA4FF3172BB8BEC700665C3D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		EA5F062B2BB6D6120068636F /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
@@ -105,8 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */,
-				EA3F10482BB7860100DFD256 /* ShowPasswordView.swift */,
-				EA3F104A2BB7861600DFD256 /* HidePasswordView.swift */,
+				EA2CF4492BBE9EA800CA0579 /* EmailFieldView.swift */,
+				EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */,
+				EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */,
 			);
 			path = EmailSignUpViews;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			children = (
 				EA4FF3172BB8BEC700665C3D /* SignInView.swift */,
 				EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */,
+				EA2CF4472BBE931200CA0579 /* ShapesView.swift */,
 			);
 			path = LogInViews;
 			sourceTree = "<group>";
@@ -258,8 +264,8 @@
 		EAD65FEF2BB94AAA00D53AD6 /* PolicyViews */ = {
 			isa = PBXGroup;
 			children = (
-				EAD65FF02BB94AF300D53AD6 /* UserAgreementView.swift */,
 				EAD65FF22BB94B0800D53AD6 /* PrivacyPolicyView.swift */,
+				EAD65FF02BB94AF300D53AD6 /* UserAgreementView.swift */,
 				EAD65FF42BB94B1700D53AD6 /* CookiePolicyView.swift */,
 			);
 			path = PolicyViews;
@@ -350,6 +356,7 @@
 			files = (
 				EA9199F82BBA9D3300E804A7 /* PolicyModels.swift in Sources */,
 				EA271D032B9F8C30004B412C /* NotificationManager.swift in Sources */,
+				EA2CF4482BBE931200CA0579 /* ShapesView.swift in Sources */,
 				EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */,
 				EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */,
 				EA4FF31C2BB8CA8000665C3D /* ForgotPasswordView.swift in Sources */,
@@ -361,12 +368,13 @@
 				EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */,
 				EABBD4572BB5652800BFDC06 /* AuthenticationManger.swift in Sources */,
 				EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */,
-				EA3F10492BB7860100DFD256 /* ShowPasswordView.swift in Sources */,
+				EA3F10492BB7860100DFD256 /* PasswordFieldView.swift in Sources */,
 				EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */,
-				EA3F104B2BB7861600DFD256 /* HidePasswordView.swift in Sources */,
+				EA3F104B2BB7861600DFD256 /* ConfirmPasswordFieldView.swift in Sources */,
 				EA9199FD2BBAFAB600E804A7 /* JsonBundleDecoder.swift in Sources */,
 				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,
 				EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */,
+				EA2CF44A2BBE9EA800CA0579 /* EmailFieldView.swift in Sources */,
 				EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */,
 				EAD65FF32BB94B0800D53AD6 /* PrivacyPolicyView.swift in Sources */,
 				EAD65FF52BB94B1700D53AD6 /* CookiePolicyView.swift in Sources */,

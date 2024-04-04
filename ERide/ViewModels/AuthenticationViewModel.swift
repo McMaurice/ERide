@@ -13,7 +13,11 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var showAuthenticationView = true
-    
+    @Published var passwordIsGood = false
+    @Published var emailIsGood = false
+    @Published var passwordMatch = false
+    @Published var showPassword = false
+    @Published var newUser = true
     
     func signUpWithEmail() async throws {
         guard !email.isEmpty, !password.isEmpty else {
@@ -59,8 +63,14 @@ final class AuthenticationViewModel: ObservableObject {
 //        try await user.sendEmailVerification(beforeUpdatingEmail: email)
 //    }
     
+    func isValidEmail(email: String) -> Bool {
+        let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    
     func isPasswordGood(password: String) -> Bool {
-        let passwordRegex = "^(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$"
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[^A-Za-z\\d]).{8,}$"
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
     }

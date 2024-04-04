@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShowPasswordView: View {
+struct PasswordView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @Binding var secondPasswordEntry: String
     @Binding var passwordField: String

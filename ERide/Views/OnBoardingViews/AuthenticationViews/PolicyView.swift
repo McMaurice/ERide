@@ -26,11 +26,11 @@ struct PoliciesView: View {
                 showConfirmationDialog.toggle()
             }
             .confirmationDialog("", isPresented: $showConfirmationDialog) {
-                NavigationLink("User Agreement") {
-                    UserAgreementView()
-                }
                 NavigationLink("Privacy Policy") {
                     PrivacyPolicyView()
+                }
+                NavigationLink("User Agreement") {
+                    UserAgreementView()
                 }
                 NavigationLink("Cookie Policy") {
                     CookiePolicyView()
