@@ -24,3 +24,8 @@ struct GoogleSignInResultModel {
     let idToken: String
     let accessToken: String
 }
+
+struct AppleSignInResultModel {
+    let token: String
+    let nonce: String
+}

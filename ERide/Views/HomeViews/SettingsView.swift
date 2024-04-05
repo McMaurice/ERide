@@ -13,6 +13,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
+                
                 Button("Log out") {
                     Task {
                         do {

@@ -10,26 +10,33 @@ import SwiftUI
 struct FederallyButtonsView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @StateObject private var googleAuthenticationViewModel = GoogleAuthenticationViewModel()
+    @StateObject private var appleAuthenticationViewModel = AppleAuthenticationViewModel()
     
     var body: some View {
-        VStack(spacing: 20) {
-                   signInButton(imageName: "apple", buttonText: "Continue with Apple", action: signInWithApple)
-                .shadow(radius: 10)
-                   signInButton(imageName: "google", buttonText: "Continue with Google", action: signInWithGoogle)
-                .shadow(radius: 10)
-                   signInButton(imageName: "facebook", buttonText: "Continue with Facebook", action: signInWithFacebook)
-                .shadow(radius: 10)
-               }
-               .foregroundColor(.white)
-               .font(.system(size: 20, weight: .semibold, design: .rounded))
-               .frame(maxWidth: .infinity)
-               .padding(.vertical, 20)
-               .padding()
-               .background(.thinMaterial)
-               .clipShape(RoundedRectangle(cornerRadius: 30))
-               .shadow(radius: 15)
-       }
-       
+        Section {
+            VStack(spacing: 20) {
+                signInButton(imageName: "apple", buttonText: "Continue with Apple", action: signInWithApple)
+                    .shadow(radius: 10)
+                signInButton(imageName: "google", buttonText: "Continue with Google", action: signInWithGoogle)
+                    .shadow(radius: 10)
+                signInButton(imageName: "facebook", buttonText: "Continue with Facebook", action: signInWithFacebook)
+                    .shadow(radius: 10)
+            }
+            .foregroundColor(.white)
+            .font(.system(size: 20, weight: .semibold, design: .rounded))
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+            .padding()
+            .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .shadow(radius: 15)
+        }
+        .onChange(of: appleAuthenticationViewModel.didSignInWithApple) { newValue in
+            if newValue {
+                authenticationViewModel.showAuthenticationView = false
+            }
+        }
+    }
     func signInButton(imageName: String, buttonText: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             HStack {
@@ -47,7 +54,14 @@ struct FederallyButtonsView: View {
     }
     
     func signInWithApple() {
-  
+        Task {
+            do {
+                try await appleAuthenticationViewModel.signInAple()
+               // authenticationViewModel.showAuthenticationView = false
+            } catch {
+               print(error)
+            }
+        }
     }
        
     func signInWithGoogle() {
