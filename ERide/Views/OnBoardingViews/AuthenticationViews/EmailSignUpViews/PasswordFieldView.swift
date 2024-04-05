@@ -30,6 +30,9 @@ struct PasswordFieldView: View {
                 }
             }
         }
+        .onAppear {
+            authenticationViewModel.showPassword = false
+        }
         .padding()
         .background(Color.gray.opacity(0.4))
         .cornerRadius(10)

@@ -19,7 +19,8 @@
 		EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */; };
 		EA5F06302BB6E7A10068636F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062F2BB6E7A10068636F /* OnboardingView.swift */; };
 		EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */; };
-		EA5F06352BB6EF7E0068636F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */; };
+		EA5F06352BB6EF7E0068636F /* EmailAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06342BB6EF7E0068636F /* EmailAuthenticationViewModel.swift */; };
+		EA7CC1C62BBFD4C0000711BD /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */; };
 		EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89508E2B9F44A4008878AA /* ERideApp.swift */; };
 		EA8950912B9F44A4008878AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8950902B9F44A4008878AA /* ContentView.swift */; };
 		EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8950922B9F44A6008878AA /* Assets.xcassets */; };
@@ -58,7 +59,8 @@
 		EA5F062D2BB6E2590068636F /* FederallyButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FederallyButtonsView.swift; sourceTree = "<group>"; };
 		EA5F062F2BB6E7A10068636F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpView.swift; sourceTree = "<group>"; };
-		EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		EA5F06342BB6EF7E0068636F /* EmailAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthenticationViewModel.swift; sourceTree = "<group>"; };
+		EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
 		EA89508B2B9F44A4008878AA /* ERide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA89508E2B9F44A4008878AA /* ERideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERideApp.swift; sourceTree = "<group>"; };
 		EA8950902B9F44A4008878AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 			path = OnBoardingViews;
 			sourceTree = "<group>";
 		};
+		EA7CC1C72BBFF42D000711BD /* EmailAuthentications */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F06342BB6EF7E0068636F /* EmailAuthenticationViewModel.swift */,
+			);
+			path = EmailAuthentications;
+			sourceTree = "<group>";
+		};
 		EA8950822B9F44A4008878AA = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				EA9199F72BBA9D3300E804A7 /* PolicyModels.swift */,
+				EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,8 +213,8 @@
 		EA8950A02B9F4B52008878AA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EA7CC1C72BBFF42D000711BD /* EmailAuthentications */,
 				EA271D042B9F9C0B004B412C /* MapViewModel.swift */,
-				EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -364,12 +375,13 @@
 				EABBD4552BB5645700BFDC06 /* MapView.swift in Sources */,
 				EAD65FEE2BB9392D00D53AD6 /* HomeView.swift in Sources */,
 				EA8950912B9F44A4008878AA /* ContentView.swift in Sources */,
-				EA5F06352BB6EF7E0068636F /* AuthenticationViewModel.swift in Sources */,
+				EA5F06352BB6EF7E0068636F /* EmailAuthenticationViewModel.swift in Sources */,
 				EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */,
 				EABBD4572BB5652800BFDC06 /* AuthenticationManger.swift in Sources */,
 				EA5F062E2BB6E2590068636F /* FederallyButtonsView.swift in Sources */,
 				EA3F10492BB7860100DFD256 /* PasswordFieldView.swift in Sources */,
 				EA89508F2B9F44A4008878AA /* ERideApp.swift in Sources */,
+				EA7CC1C62BBFD4C0000711BD /* AuthDataResultModel.swift in Sources */,
 				EA3F104B2BB7861600DFD256 /* ConfirmPasswordFieldView.swift in Sources */,
 				EA9199FD2BBAFAB600E804A7 /* JsonBundleDecoder.swift in Sources */,
 				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,

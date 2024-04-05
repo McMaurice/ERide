@@ -19,6 +19,9 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var showPassword = false
     @Published var newUser = true
     
+    @Published var newEmail = ""
+    @Published var newPassword = ""
+    
     func signUpWithEmail() async throws {
         guard !email.isEmpty, !password.isEmpty else {
             // add any alerts
@@ -43,25 +46,33 @@ final class AuthenticationViewModel: ObservableObject {
         try AuthenticationManager.shared.signOut()
     }
     
-//    func resetPassword(email: String) async throws {
-//        try await Auth.auth().sendPasswordReset(withEmail: email)
-//    }
-//    
-////MARK: Updates in app while loged in
-//    
-//    func updatePassword(password: String) async throws {
-//        guard let user = Auth.auth().currentUser else {
-//            throw URLError(.badServerResponse)
-//        }
-//        try await user.updatePassword(to: password)
-//    }
-//    
-//    func updateEmail(email: String) async throws {
-//        guard let user = Auth.auth().currentUser else {
-//            throw URLError(.badServerResponse)
-//        }
-//        try await user.sendEmailVerification(beforeUpdatingEmail: email)
-//    }
+    func resetPassword() async throws {
+        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
+        
+        guard let email = authUser.email else {
+            throw URLError(.fileDoesNotExist)
+        }
+        try await AuthenticationManager.shared.resetPassword(email: email)
+    }
+    
+    func updatePassword() async throws {
+        guard !newPassword.isEmpty else {
+            // add any alerts
+            print("No email found")
+            return
+        }
+        try await AuthenticationManager.shared.updatePassword(password: newPassword)
+    }
+    
+    func updateEmail() async throws {
+        guard !newEmail.isEmpty else {
+            // add any alerts
+            print("No email found")
+            return
+        }
+        
+        try await AuthenticationManager.shared.updateEmail(email: newEmail)
+    }
     
     func isValidEmail(email: String) -> Bool {
         let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#

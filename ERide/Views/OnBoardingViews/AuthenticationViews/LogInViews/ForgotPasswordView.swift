@@ -12,6 +12,7 @@ struct ForgotPasswordView: View {
     @Environment(\.dismiss) var dismiss
     @FocusState private var usernameInFocus: Bool
     @State private var emailField = ""
+    @State private var showNotification = false
     
     var body: some View {
         NavigationStack {
@@ -22,15 +23,15 @@ struct ForgotPasswordView: View {
                     .autocorrectionDisabled(true)
                 Button {
                     authenticationViewModel.email = emailField
-//                    Task {
-//                        do {
-//                            try await authenticationViewModel.forgotPassword()
-//                            return
-//                        } catch {
-//
-//                        }
-//                    }
-                    dismiss()
+                    Task {
+                        do {
+                            try await authenticationViewModel.resetPassword()
+                            showNotification.toggle()
+                        } catch {
+
+                        }
+                    }
+                   // dismiss()
                 } label: {
                     Text("Reset Password")
                         .font(.headline)
