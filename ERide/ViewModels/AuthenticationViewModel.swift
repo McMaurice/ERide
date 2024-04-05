@@ -18,9 +18,16 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var passwordMatch = false
     @Published var showPassword = false
     @Published var newUser = true
+    @Published var authProviders: [AuthProviderOption] = []
     
     @Published var newEmail = ""
     @Published var newPassword = ""
+    
+    func loadAuthProviders() {
+        if let providers = try? FirebaseAuthenticationManager.shared.getProviders() {
+            authProviders = providers
+        }
+    }
     
     func signUpWithEmail() async throws {
         guard !email.isEmpty, !password.isEmpty else {
@@ -29,7 +36,7 @@ final class AuthenticationViewModel: ObservableObject {
             return
         }
         
-        try await AuthenticationManager.shared.createUser(email: email, password: password)
+        try await FirebaseAuthenticationManager.shared.createUser(email: email, password: password)
     }
     
     func signInWithEmail() async throws {
@@ -39,20 +46,20 @@ final class AuthenticationViewModel: ObservableObject {
             return
         }
         
-        try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        try await FirebaseAuthenticationManager.shared.signInUser(email: email, password: password)
     }
     
     func signOut() throws {
-        try AuthenticationManager.shared.signOut()
+        try FirebaseAuthenticationManager.shared.signOut()
     }
     
     func resetPassword() async throws {
-        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
-        
-        guard let email = authUser.email else {
-            throw URLError(.fileDoesNotExist)
+        guard !email.isEmpty else {
+            // add any alerts
+            print("No email found")
+            return
         }
-        try await AuthenticationManager.shared.resetPassword(email: email)
+        try await FirebaseAuthenticationManager.shared.resetPassword(email: email)
     }
     
     func updatePassword() async throws {
@@ -61,7 +68,7 @@ final class AuthenticationViewModel: ObservableObject {
             print("No email found")
             return
         }
-        try await AuthenticationManager.shared.updatePassword(password: newPassword)
+        try await FirebaseAuthenticationManager.shared.updatePassword(password: newPassword)
     }
     
     func updateEmail() async throws {
@@ -71,9 +78,9 @@ final class AuthenticationViewModel: ObservableObject {
             return
         }
         
-        try await AuthenticationManager.shared.updateEmail(email: newEmail)
+        try await FirebaseAuthenticationManager.shared.updateEmail(email: newEmail)
     }
-    
+ 
     func isValidEmail(email: String) -> Bool {
         let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)

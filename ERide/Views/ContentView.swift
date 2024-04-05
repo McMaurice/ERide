@@ -15,11 +15,11 @@ struct ContentView: View {
             if authenticationViewModel.showAuthenticationView {
                 AuthenticationView()
             } else {
-                HomeView()
+                SettingsView()
             }
         }
         .onAppear {
-            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            let authUser = try? FirebaseAuthenticationManager.shared.getAuthenticatedUser()
             self.authenticationViewModel.showAuthenticationView = authUser == nil
         }
     }

@@ -27,11 +27,12 @@ struct ForgotPasswordView: View {
                         do {
                             try await authenticationViewModel.resetPassword()
                             showNotification.toggle()
+                            dismiss()
                         } catch {
 
                         }
                     }
-                   // dismiss()
+                    
                 } label: {
                     Text("Reset Password")
                         .font(.headline)

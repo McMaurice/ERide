@@ -19,3 +19,8 @@ struct AuthDataResultModel {
         self.photoUrl = user.photoURL?.absoluteString
     }
 }
+
+struct GoogleSignInResultModel {
+    let idToken: String
+    let accessToken: String
+}

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FederallyButtonsView: View {
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @StateObject private var googleAuthenticationViewModel = GoogleAuthenticationViewModel()
     
     var body: some View {
         VStack(spacing: 20) {
@@ -46,10 +48,17 @@ struct FederallyButtonsView: View {
     
     func signInWithApple() {
   
-       }
+    }
        
     func signInWithGoogle() {
-
+        Task {
+            do {
+                try await googleAuthenticationViewModel.signInGoogle()
+                authenticationViewModel.showAuthenticationView = false
+            } catch {
+               print(error)
+            }
+        }
     }
    
     func signInWithFacebook() {
@@ -61,5 +70,6 @@ struct FederallyButtonsView: View {
 struct FederallyButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         FederallyButtonsView()
+            .environmentObject(AuthenticationViewModel())
     }
 }
