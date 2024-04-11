@@ -9,29 +9,60 @@ import SwiftUI
 
 struct OnboardingView: View {
 @State private var data = ""
-    @State private var title = "Email"
+    @StateObject private var userProfileViewModel = UserProfileViewModel()
+    @State private var showAlert = false
+    
+    @State private var familyNameFild = ""
+    @State private var givenNameFild = ""
+    @State private var otherName = ""
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                TextField("", text: $data)
-                  .padding(.horizontal, 10)
-                  .frame(height: 50)
-                  .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(.gray, lineWidth: 1)
-                  )
-                HStack {                    // HStack for the text
-                    Text(title )
-                    .font(.system(.subheadline, design: .monospaced, weight: .semibold))
-                    .foregroundColor(.blue)
-                    .padding(5)
-                    .background(.white)
-                  Spacer()
+            VStack {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)
+            }
+            Form {
+                Section {
+                    Text(userProfileViewModel.userPrimaryModels.email)
                 }
-                .padding(.leading, 10)
-                .offset(x: 0, y: -25)
-              }
-            .padding()
+                
+                Section(header: Text("Username")
+                    .modifier(FormSubTitleModifier())
+                ) {
+                    TextField("Username", text: .constant(""))
+                }
+                
+                Section(header: Text("Names")
+                    .modifier(FormSubTitleModifier())
+                ) {
+                    TextField(text: $familyNameFild) {
+                        if !userProfileViewModel.userPrimaryModels.familyName.isEmpty {
+                            Text(userProfileViewModel.userPrimaryModels.familyName)
+                        } else {
+                            Text("Family Name")
+                        }
+                    }
+                    TextField(text: $givenNameFild) {
+                        if !userProfileViewModel.userPrimaryModels.givenName.isEmpty {
+                            Text(userProfileViewModel.userPrimaryModels.givenName)
+                        } else {
+                            Text("Given Name")
+                        }
+                    }
+                    TextField(text: $otherName) {
+                        Text("Other Name")
+                    }
+                }
+                
+                Section(header: Text("Upload Address")
+                    .modifier(FormSubTitleModifier())
+                ) {
+                    Text("Upload Address Field")
+                }
+            }
         }
     }
 }

@@ -23,16 +23,20 @@ final class GoogleAuthenticationViewModel: ObservableObject {
             throw URLError(.badServerResponse)
         }
         
-        //MARK: GET USERS DETAILS HERE
-//        if let email = gIDSignInResul.user.profile?.email,
-//           let familyName = gIDSignInResul.user.profile?.familyName,
-//           let givenName = gIDSignInResul.user.profile?.givenName {
-//            UserPrimaryModels.updatePrimaryModel(email: email, familyName: familyName, givenName: givenName)
-//        } else {
-//            print("User has no details")
-//        }
-        
         let accessToken = gIDSignInResul.user.accessToken.tokenString
+        
+        //MARK: GET USERS DETAILS HERE
+        let userProfileViewModel = UserProfileViewModel()
+        if let email = gIDSignInResul.user.profile?.email,
+           let familyName = gIDSignInResul.user.profile?.familyName,
+           let givenName = gIDSignInResul.user.profile?.givenName {
+            
+            userProfileViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
+            
+        } else {
+            print("User has no details")
+        }
+        
         let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
         
         try await FirebaseAuthenticationManager.shared.signInWithGoogle(tokens: tokens)

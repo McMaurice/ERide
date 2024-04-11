@@ -83,11 +83,19 @@ extension AppleAuthenticationViewModel: ASAuthorizationControllerDelegate {
             return
         }
         
-        //MARK: GET USERS DETAILS HERE
-        let email = appleIDCredential.email
-        let familyName = appleIDCredential.fullName?.familyName
-        let givenName = appleIDCredential.fullName?.givenName
         let tokens = AppleSignInResultModel(token: idTokenString, nonce: nonce)
+        
+        //MARK: GET USERS DETAILS HERE
+        let userProfileViewModel = UserProfileViewModel()
+        if let email = appleIDCredential.email,
+           let familyName = appleIDCredential.fullName?.familyName,
+           let givenName = appleIDCredential.fullName?.givenName {
+            
+            userProfileViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
+            
+        } else {
+            print("User has no details")
+        }
         
         Task {
             do {

@@ -10,18 +10,22 @@ import Foundation
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
     
-    @Published var email = ""
-    @Published var password = ""
     @Published var showAuthenticationView = true
+    
+    @Published var email = ""
+    
+    @Published var password = ""
     @Published var passwordIsGood = false
-    @Published var emailIsGood = false
     @Published var passwordMatch = false
     @Published var showPassword = false
+    
+    @Published var emailIsGood = false
     @Published var newUser = true
-    @Published var authProviders: [AuthProviderOption] = []
     
     @Published var newEmail = ""
     @Published var newPassword = ""
+    
+    @Published var authProviders: [AuthProviderOption] = []
     
     func loadAuthProviders() {
         if let providers = try? FirebaseAuthenticationManager.shared.getProviders() {
@@ -35,7 +39,8 @@ final class AuthenticationViewModel: ObservableObject {
             print("No email or password found")
             return
         }
-        
+        let userProfileViewModel = UserProfileViewModel()
+        userProfileViewModel.updateUserDetails(email: email, givenName: "", familyName: "")
         try await FirebaseAuthenticationManager.shared.createUser(email: email, password: password)
     }
     
@@ -81,6 +86,7 @@ final class AuthenticationViewModel: ObservableObject {
         try await FirebaseAuthenticationManager.shared.updateEmail(email: newEmail)
     }
  
+
     func isValidEmail(email: String) -> Bool {
         let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
