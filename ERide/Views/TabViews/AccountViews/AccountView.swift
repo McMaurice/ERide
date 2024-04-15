@@ -108,7 +108,7 @@ struct AccountView: View {
                                         }
                                     }
                                 } label: {
-                                    Text("Log out")
+                                    Text("Log out gr")
                                         .foregroundColor(.accentColor)
                                 }
                                 Spacer()
