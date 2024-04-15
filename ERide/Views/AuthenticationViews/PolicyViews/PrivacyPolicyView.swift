@@ -21,36 +21,28 @@ struct PrivacyPolicyView: View {
                         Text(privacyPolicy.content1)
                     } header: {
                         Text("Information We Collect")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text(privacyPolicy.content2)
                     } header: {
                         Text("How We Use Your Information")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text(privacyPolicy.content3)
                     } header: {
                         Text("Sharing of Information")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text("\(privacyPolicy.content4) \(email)")
                     } header: {
                         Text("For Inquires")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                 }
                 .font(.subheadline)

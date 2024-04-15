@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct OnboardingView: View {
+struct EditProfileView: View {
 @State private var data = ""
-    @StateObject private var userProfileViewModel = UserProfileViewModel()
+    @StateObject private var userViewModel = UserViewModel()
     @State private var showAlert = false
     
     @State private var familyNameFild = ""
@@ -26,7 +26,7 @@ struct OnboardingView: View {
             }
             Form {
                 Section {
-                    Text(userProfileViewModel.userPrimaryModels.email)
+                    Text(userViewModel.userPrimaryModels.email)
                 }
                 
                 Section(header: Text("Username")
@@ -39,15 +39,15 @@ struct OnboardingView: View {
                     .modifier(FormSubTitleModifier())
                 ) {
                     TextField(text: $familyNameFild) {
-                        if !userProfileViewModel.userPrimaryModels.familyName.isEmpty {
-                            Text(userProfileViewModel.userPrimaryModels.familyName)
+                        if !userViewModel.userPrimaryModels.familyName.isEmpty {
+                            Text(userViewModel.userPrimaryModels.familyName)
                         } else {
                             Text("Family Name")
                         }
                     }
                     TextField(text: $givenNameFild) {
-                        if !userProfileViewModel.userPrimaryModels.givenName.isEmpty {
-                            Text(userProfileViewModel.userPrimaryModels.givenName)
+                        if !userViewModel.userPrimaryModels.givenName.isEmpty {
+                            Text(userViewModel.userPrimaryModels.givenName)
                         } else {
                             Text("Given Name")
                         }
@@ -63,13 +63,14 @@ struct OnboardingView: View {
                     Text("Upload Address Field")
                 }
             }
+            .navigationTitle("Edit Profile")
         }
     }
 }
 
-struct OnboardingView_Previews: PreviewProvider {
+struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        EditProfileView()
             .environmentObject(AuthenticationViewModel())
     }
 }

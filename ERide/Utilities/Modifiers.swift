@@ -18,3 +18,36 @@ struct FormSubTitleModifier: ViewModifier {
             .foregroundColor(Color(color1))
     }
 }
+
+struct HeaderTextModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .fontWeight(.bold)
+            .padding(.top)
+    }
+}
+
+struct LongButtonModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .foregroundColor(.white)
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(Color.accentColor)
+            .cornerRadius(20)
+            .shadow(radius: 15)
+    }
+}
+
+struct CleanListModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .listRowSeparator(.hidden)
+            .listRowBackground(Color.clear)
+    }
+}

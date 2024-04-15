@@ -26,7 +26,7 @@ final class GoogleAuthenticationViewModel: ObservableObject {
         let accessToken = gIDSignInResul.user.accessToken.tokenString
         
         //MARK: GET USERS DETAILS HERE
-        let userProfileViewModel = UserProfileViewModel()
+        let userProfileViewModel = UserViewModel()
         if let email = gIDSignInResul.user.profile?.email,
            let familyName = gIDSignInResul.user.profile?.familyName,
            let givenName = gIDSignInResul.user.profile?.givenName {

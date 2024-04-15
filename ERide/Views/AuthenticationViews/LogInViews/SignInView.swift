@@ -47,13 +47,7 @@ struct SignInView: View {
                         }
                     } label: {
                         Text("Log In")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(height: 55)
-                            .frame(maxWidth: .infinity)
-                            .background(.blue)
-                            .cornerRadius(20)
-                            .shadow(radius: 15)
+                            .modifier(LongButtonModifier())
                     }
                     HStack {
                         Text("Forgot your password?")

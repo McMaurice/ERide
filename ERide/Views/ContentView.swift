@@ -15,7 +15,7 @@ struct ContentView: View {
             if authenticationViewModel.showAuthenticationView {
                 AuthenticationView()
             } else {
-                SettingsView()
+                RootMenuView()
             }
         }
         .onAppear {

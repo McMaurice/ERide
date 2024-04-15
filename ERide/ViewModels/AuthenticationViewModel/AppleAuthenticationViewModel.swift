@@ -12,7 +12,7 @@ import CryptoKit
 @MainActor
 final class AppleAuthenticationViewModel: NSObject, ObservableObject {
     
-    private var currentNonce: String?
+    var currentNonce: String?
     @Published var didSignInWithApple: Bool = false
     
     func signInAple() async throws {
@@ -68,50 +68,6 @@ final class AppleAuthenticationViewModel: NSObject, ObservableObject {
 
       return hashString
     }
-}
-
-extension AppleAuthenticationViewModel: ASAuthorizationControllerDelegate {
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
-        guard
-            let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
-            let appleIDToken = appleIDCredential.identityToken,
-            let idTokenString = String(data: appleIDToken, encoding: .utf8),
-            let nonce = currentNonce else {
-            print("error")
-            return
-        }
-        
-        let tokens = AppleSignInResultModel(token: idTokenString, nonce: nonce)
-        
-        //MARK: GET USERS DETAILS HERE
-        let userProfileViewModel = UserProfileViewModel()
-        if let email = appleIDCredential.email,
-           let familyName = appleIDCredential.fullName?.familyName,
-           let givenName = appleIDCredential.fullName?.givenName {
-            
-            userProfileViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
-            
-        } else {
-            print("User has no details")
-        }
-        
-        Task {
-            do {
-                try await FirebaseAuthenticationManager.shared.signInWithApple(tokens: tokens)
-                didSignInWithApple = true
-            } catch {
-                
-            }
-        }
-    }
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error.
-        print("Sign in with Apple errored: \(error)")
-    }
-    
 }
 
 //MARK: MAKES THE TOP VIEW CONTROLLER THE DELEGATE

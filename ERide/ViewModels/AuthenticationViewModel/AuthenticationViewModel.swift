@@ -10,20 +10,16 @@ import Foundation
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
     
-    @Published var showAuthenticationView = true
-    
+    @Published var newEmail = ""
+    @Published var newPassword = ""
     @Published var email = ""
-    
     @Published var password = ""
     @Published var passwordIsGood = false
     @Published var passwordMatch = false
     @Published var showPassword = false
-    
     @Published var emailIsGood = false
     @Published var newUser = true
-    
-    @Published var newEmail = ""
-    @Published var newPassword = ""
+    @Published var showAuthenticationView = true
     
     @Published var authProviders: [AuthProviderOption] = []
     
@@ -39,7 +35,7 @@ final class AuthenticationViewModel: ObservableObject {
             print("No email or password found")
             return
         }
-        let userProfileViewModel = UserProfileViewModel()
+        let userProfileViewModel = UserViewModel()
         userProfileViewModel.updateUserDetails(email: email, givenName: "", familyName: "")
         try await FirebaseAuthenticationManager.shared.createUser(email: email, password: password)
     }

@@ -61,13 +61,7 @@ struct EmailSignUpView: View {
                 }
             } label: {
                 Text("Sign up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.accentColor)
-                    .cornerRadius(20)
-                    .shadow(radius: 15)
+                    .modifier(LongButtonModifier())
             }
             .padding(.top)
         }

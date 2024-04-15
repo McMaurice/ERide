@@ -9,17 +9,15 @@ import SwiftUI
 
 struct AuthenticationView: View {
     @State private var animateCar: Bool = false
-    @State private var backgoundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(backgoundColor).ignoresSafeArea()
+                Color.accentColor.ignoresSafeArea()
                 VStack {
                     VStack(spacing: 0) {
                         Image("car")
                             .resizable()
-                            .foregroundColor(.white)
                             .scaledToFit()
                             .offset(x: animateCar ? 0 : -250)
                         Text("Let's get you signed up!")

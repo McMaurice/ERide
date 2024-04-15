@@ -35,13 +35,7 @@ struct ForgotPasswordView: View {
                     
                 } label: {
                     Text("Reset Password")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .shadow(radius: 15)
+                        .modifier(LongButtonModifier())
                 }
                 
                 VStack {

@@ -26,9 +26,9 @@ struct EmailFieldView: View {
                 HStack {
                     Text("Email")
                         .font(.system(.subheadline, design: .monospaced, weight: .semibold))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.accentColor)
                         .padding(5)
-                        .background(Color.white)
+                        .background(Utilities.shared.isDarkMode() ? .black : .white)
                     Spacer()
                 }
                 .padding(.leading, 10)

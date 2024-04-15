@@ -21,54 +21,42 @@ struct CookiePolicyView: View {
                         Text(cookiePolicy.what_are_cookies)
                     } header: {
                         Text("What are Cookies")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text(cookiePolicy.how_we_use_cookies)
                     } header: {
                         Text("How We Use Cookies")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text(cookiePolicy.your_choices_regarding_cookies)
                     } header: {
                         Text("Your Choices Regarding Cookies")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text(cookiePolicy.third_party_cookies)
                     } header: {
                         Text("Third-Party Cookies")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text(cookiePolicy.changes_to_this_cookie_policy)
                     } header: {
                         Text("Changes to this Cookie Policy")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                     
                     Section {
                         Text("\(cookiePolicy.contact_us) \(email)")
                     } header: {
                         Text("For Inquires")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.top)
+                            .modifier(HeaderTextModifier())
                     }
                 }
                 .font(.subheadline)
