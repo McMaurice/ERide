@@ -19,6 +19,7 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var showPassword = false
     @Published var emailIsGood = false
     @Published var newUser = true
+    @Published var newInput = true
     @Published var showAuthenticationView = true
     
     @Published var authProviders: [AuthProviderOption] = []

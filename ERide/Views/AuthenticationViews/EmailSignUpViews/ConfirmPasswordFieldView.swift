@@ -28,6 +28,7 @@ struct ConfirmPasswordFieldView: View {
                 }
             }
         }
+        .accentColor(.primary)
         .padding()
         .background(Color.gray.opacity(0.4))
         .cornerRadius(10)

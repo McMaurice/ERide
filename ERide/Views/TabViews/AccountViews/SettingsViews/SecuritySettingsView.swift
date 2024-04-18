@@ -19,7 +19,7 @@ struct SecuritySettingsView: View {
         NavigationStack {
             VStack {
                 List {
-                    if authenticationViewModel.authProviders.contains(.email) {
+                    if !authenticationViewModel.authProviders.contains(.email) {
                         Section {
                             Button("Update Password") {
                                 authenticationViewModel.newPassword = newPasswordField

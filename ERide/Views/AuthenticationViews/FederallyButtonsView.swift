@@ -57,7 +57,8 @@ struct FederallyButtonsView: View {
         Task {
             do {
                 try await appleAuthenticationViewModel.signInAple()
-               // authenticationViewModel.showAuthenticationView = false
+                authenticationViewModel.showAuthenticationView = false
+                authenticationViewModel.newUser = true
             } catch {
                print(error)
             }
@@ -69,6 +70,7 @@ struct FederallyButtonsView: View {
             do {
                 try await googleAuthenticationViewModel.signInGoogle()
                 authenticationViewModel.showAuthenticationView = false
+                authenticationViewModel.newUser = true
             } catch {
                print(error)
             }

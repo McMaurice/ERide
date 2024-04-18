@@ -15,7 +15,11 @@ struct ContentView: View {
             if authenticationViewModel.showAuthenticationView {
                 AuthenticationView()
             } else {
-                RootMenuView()
+                if authenticationViewModel.newUser {
+                    EditProfileView()
+                } else {
+                    RootMenuView()
+                }
             }
         }
         .onAppear {

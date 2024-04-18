@@ -15,24 +15,32 @@ struct EmailFieldView: View {
     var body: some View {
         VStack {
             ZStack {
-                TextField("", text: $emailField)
-                    .focused($usernameInFocus)
-                    .padding(.horizontal, 10)
-                    .frame(height: 50)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
+                VStack {
+                    TextField("", text: $emailField)
+                        .focused($usernameInFocus)
+                        .padding(.horizontal, 10)
+                        .frame(height: 50)
+                        .accentColor(.primary)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                }
+                .onTapGesture {
+                    usernameInFocus = true
+                }
                 HStack {
                     Text("Email")
                         .font(.system(.subheadline, design: .monospaced, weight: .semibold))
                         .foregroundColor(.accentColor)
                         .padding(5)
                         .background(Utilities.shared.isDarkMode() ? .black : .white)
+                        
                     Spacer()
                 }
                 .padding(.leading, 10)
-                .offset(x: 0, y: -25)
+                .offset(y: !usernameInFocus && emailField.isEmpty ? 0 : -25)
+                
                 if !emailField.isEmpty {
                     HStack {
                         Spacer()
@@ -45,11 +53,6 @@ struct EmailFieldView: View {
             }
             .onChange(of: emailField) { newValue in
                 authenticationViewModel.emailIsGood = authenticationViewModel.isValidEmail(email: newValue)
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.usernameInFocus = true
-                }
             }
         }
     }

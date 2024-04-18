@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserAgreementView: View {
-    @State private var userAgreements: [UserAgreement] = []
+    let userAgreements: [UserAgreement] = Bundle.main.decode("userAgreement.json")
+    
     let email = Text("macmauriceosuji@gmail.com").foregroundColor(.blue)
     
     var body: some View {
@@ -20,12 +21,10 @@ struct UserAgreementView: View {
                     Text(agreement.content)
                         .font(.subheadline)
                 }
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .navigationBarTitle("User Agreement")
-            .onAppear {
-                userAgreements = JSONDecoderHelper.decode(fileName: "userAgreement", fileExtension: "json", type: [UserAgreement].self) ?? userAgreements
-            }
         }
     }
 }

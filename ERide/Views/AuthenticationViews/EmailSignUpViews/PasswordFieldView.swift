@@ -26,10 +26,11 @@ struct PasswordFieldView: View {
                         .onTapGesture {
                             authenticationViewModel.showPassword.toggle()
                         }
-                        .padding(.trailing, authenticationViewModel.newUser ? 25 : 0)
+                        .padding(.trailing, authenticationViewModel.newInput ? 25 : 0)
                 }
             }
         }
+        .accentColor(.primary)
         .onAppear {
             authenticationViewModel.showPassword = false
         }

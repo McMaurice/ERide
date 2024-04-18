@@ -14,8 +14,35 @@ struct FormSubTitleModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 10, weight: .semibold, design: .rounded))
+            .font(.system(size: 15, weight: .regular, design: .rounded))
             .foregroundColor(Color(color1))
+            .padding(5)
+            .background(Utilities.shared.isDarkMode() ? .black : .white)  
+    }
+}
+
+struct PlaceHolderModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .font(.headline)
+            .fontWeight(.semibold)
+            .frame(height: 50)
+            .accentColor(.primary)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
+    }
+}
+
+struct TextFieldNameModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(.trailing)
+            .offset(y: -26)
     }
 }
 

@@ -34,6 +34,7 @@
 		EA5F06302BB6E7A10068636F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062F2BB6E7A10068636F /* EditProfileView.swift */; };
 		EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */; };
 		EA5F06352BB6EF7E0068636F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */; };
+		EA72AEA82BCFB45300DA226D /* AccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72AEA72BCFB45300DA226D /* AccountHeaderView.swift */; };
 		EA7CC1C62BBFD4C0000711BD /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */; };
 		EA7CC1C92BBFF9CD000711BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA7CC1C82BBFF9CD000711BD /* GoogleService-Info.plist */; };
 		EA7CC1CC2BBFFB39000711BD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = EA7CC1CB2BBFFB39000711BD /* GoogleSignIn */; };
@@ -54,6 +55,12 @@
 		EA9368AC2BCD4F8E00119B27 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9368AB2BCD4F8E00119B27 /* PrivacySettingsView.swift */; };
 		EA9368AE2BCD660A00119B27 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9368AD2BCD660A00119B27 /* WalletView.swift */; };
 		EA9368B02BCD66F700119B27 /* ActiveRentalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9368AF2BCD66F700119B27 /* ActiveRentalsView.swift */; };
+		EA9713722BD0877200F7DDCE /* countryData.json in Resources */ = {isa = PBXBuildFile; fileRef = EA9713712BD0877200F7DDCE /* countryData.json */; };
+		EA9713742BD0879500F7DDCE /* CountryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9713732BD0879500F7DDCE /* CountryDataModel.swift */; };
+		EA9713762BD087AF00F7DDCE /* PhoneDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9713752BD087AF00F7DDCE /* PhoneDropDownView.swift */; };
+		EA9713782BD0EC5500F7DDCE /* DatePickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9713772BD0EC5400F7DDCE /* DatePickers.swift */; };
+		EA97137A2BD0F93700F7DDCE /* PhoneDropDownViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9713792BD0F93700F7DDCE /* PhoneDropDownViewExtension.swift */; };
+		EA97137C2BD0FB0D00F7DDCE /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97137B2BD0FB0D00F7DDCE /* RatingView.swift */; };
 		EABBD4482BB55A0D00BFDC06 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD4472BB55A0D00BFDC06 /* FirebaseAnalytics */; };
 		EABBD44A2BB55A0D00BFDC06 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EABBD4492BB55A0D00BFDC06 /* FirebaseAnalyticsSwift */; };
 		EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */; };
@@ -99,6 +106,7 @@
 		EA5F062F2BB6E7A10068636F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		EA5F06312BB6EA3E0068636F /* EmailSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpView.swift; sourceTree = "<group>"; };
 		EA5F06342BB6EF7E0068636F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		EA72AEA72BCFB45300DA226D /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
 		EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
 		EA7CC1C82BBFF9CD000711BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA7CC1CF2BC000C4000711BD /* GoogleAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +126,12 @@
 		EA9368AB2BCD4F8E00119B27 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
 		EA9368AD2BCD660A00119B27 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		EA9368AF2BCD66F700119B27 /* ActiveRentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRentalsView.swift; sourceTree = "<group>"; };
+		EA9713712BD0877200F7DDCE /* countryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryData.json; sourceTree = "<group>"; };
+		EA9713732BD0879500F7DDCE /* CountryDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDataModel.swift; sourceTree = "<group>"; };
+		EA9713752BD087AF00F7DDCE /* PhoneDropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneDropDownView.swift; sourceTree = "<group>"; };
+		EA9713772BD0EC5400F7DDCE /* DatePickers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickers.swift; sourceTree = "<group>"; };
+		EA9713792BD0F93700F7DDCE /* PhoneDropDownViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDropDownViewExtension.swift; sourceTree = "<group>"; };
+		EA97137B2BD0FB0D00F7DDCE /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		EABBD4522BB5642600BFDC06 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		EABBD4542BB5645700BFDC06 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		EABBD4562BB5652800BFDC06 /* FirebaseAuthenticationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationManger.swift; sourceTree = "<group>"; };
@@ -162,7 +176,9 @@
 				EA2D2A4B2BC7D662003AAF83 /* AccountView.swift */,
 				EA9368A62BCD4BDD00119B27 /* ContactSupportView.swift */,
 				EA9368AD2BCD660A00119B27 /* WalletView.swift */,
+				EA97137B2BD0FB0D00F7DDCE /* RatingView.swift */,
 				EA9368AF2BCD66F700119B27 /* ActiveRentalsView.swift */,
+				EA72AEA72BCFB45300DA226D /* AccountHeaderView.swift */,
 				EA9368A82BCD4CAA00119B27 /* SettingsViews */,
 			);
 			path = AccountViews;
@@ -239,7 +255,6 @@
 		EA7CC1D12BC003DE000711BD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				EA9199FC2BBAFAB600E804A7 /* JsonBundleDecoder.swift */,
 				EA5F062B2BB6D6120068636F /* GlobalConstants.swift */,
 				EA7CC1D22BC00452000711BD /* Utilities.swift */,
 				EA2D2A3E2BC716E1003AAF83 /* Modifiers.swift */,
@@ -298,6 +313,7 @@
 				EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */,
 				EA3B3E412BC07A9C00038B71 /* UserProfileModel.swift */,
 				EA3B3E432BC0810700038B71 /* CarRentalModels.swift */,
+				EA9713732BD0879500F7DDCE /* CountryDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +345,7 @@
 				EAFDCA7E2BBBFA1B00D75719 /* userAgreement.json */,
 				EAFDCA842BBC068500D75719 /* privacyPolicy.json */,
 				EAFDCA862BBC06A600D75719 /* cookiePolicy.json */,
+				EA9713712BD0877200F7DDCE /* countryData.json */,
 			);
 			path = JsonFiles;
 			sourceTree = "<group>";
@@ -337,6 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				EA9368A42BCD49BA00119B27 /* AppleAuthenticationViewModelExtensions.swift */,
+				EA9199FC2BBAFAB600E804A7 /* JsonBundleDecoder.swift */,
+				EA9713792BD0F93700F7DDCE /* PhoneDropDownViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +367,8 @@
 				EA5F062F2BB6E7A10068636F /* EditProfileView.swift */,
 				EA9368A92BCD4CF200119B27 /* NotificationPreferencesView.swift */,
 				EA9368AB2BCD4F8E00119B27 /* PrivacySettingsView.swift */,
+				EA9713772BD0EC5400F7DDCE /* DatePickers.swift */,
+				EA9713752BD087AF00F7DDCE /* PhoneDropDownView.swift */,
 			);
 			path = SettingsViews;
 			sourceTree = "<group>";
@@ -470,6 +491,7 @@
 				EAFDCA852BBC068500D75719 /* privacyPolicy.json in Resources */,
 				EA8950962B9F44A6008878AA /* Preview Assets.xcassets in Resources */,
 				EA7CC1C92BBFF9CD000711BD /* GoogleService-Info.plist in Resources */,
+				EA9713722BD0877200F7DDCE /* countryData.json in Resources */,
 				EA8950932B9F44A6008878AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,11 +510,14 @@
 				EA2CF4482BBE931200CA0579 /* ShapesView.swift in Sources */,
 				EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */,
 				EA5F06322BB6EA3E0068636F /* EmailSignUpView.swift in Sources */,
+				EA9713742BD0879500F7DDCE /* CountryDataModel.swift in Sources */,
+				EA9713782BD0EC5500F7DDCE /* DatePickers.swift in Sources */,
 				EA4FF31C2BB8CA8000665C3D /* ForgotPasswordView.swift in Sources */,
 				EAD65FF72BB95B0200D53AD6 /* PolicyView.swift in Sources */,
 				EA2D2A5B2BC7DC1C003AAF83 /* CategoriesView.swift in Sources */,
 				EABBD4552BB5645700BFDC06 /* MapView.swift in Sources */,
 				EAD65FEE2BB9392D00D53AD6 /* SecuritySettingsView.swift in Sources */,
+				EA97137A2BD0F93700F7DDCE /* PhoneDropDownViewExtension.swift in Sources */,
 				EA8950912B9F44A4008878AA /* ContentView.swift in Sources */,
 				EA9368A52BCD49BA00119B27 /* AppleAuthenticationViewModelExtensions.swift in Sources */,
 				EA2D2A5D2BC7DCD1003AAF83 /* HomeView.swift in Sources */,
@@ -511,11 +536,13 @@
 				EA3F104B2BB7861600DFD256 /* ConfirmPasswordFieldView.swift in Sources */,
 				EA9199FD2BBAFAB600E804A7 /* JsonBundleDecoder.swift in Sources */,
 				EA2D2A502BC7D68B003AAF83 /* SearchView.swift in Sources */,
+				EA97137C2BD0FB0D00F7DDCE /* RatingView.swift in Sources */,
 				EA3B3E3F2BC060FF00038B71 /* AppleAuthenticationViewModel.swift in Sources */,
 				EA7CC1D02BC000C4000711BD /* GoogleAuthenticationViewModel.swift in Sources */,
 				EA271D052B9F9C0B004B412C /* MapViewModel.swift in Sources */,
 				EA9368A32BCD475600119B27 /* RentalHistoryView.swift in Sources */,
 				EA2D2A522BC7D6C5003AAF83 /* PublishingView.swift in Sources */,
+				EA9713762BD087AF00F7DDCE /* PhoneDropDownView.swift in Sources */,
 				EA9368A72BCD4BDD00119B27 /* ContactSupportView.swift in Sources */,
 				EA9368B02BCD66F700119B27 /* ActiveRentalsView.swift in Sources */,
 				EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */,
@@ -524,6 +551,7 @@
 				EA9368AC2BCD4F8E00119B27 /* PrivacySettingsView.swift in Sources */,
 				EA2D2A4E2BC7D678003AAF83 /* FeedsView.swift in Sources */,
 				EA2CF44A2BBE9EA800CA0579 /* EmailFieldView.swift in Sources */,
+				EA72AEA82BCFB45300DA226D /* AccountHeaderView.swift in Sources */,
 				EA3B3E422BC07A9C00038B71 /* UserProfileModel.swift in Sources */,
 				EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */,
 				EAD65FF32BB94B0800D53AD6 /* PrivacyPolicyView.swift in Sources */,

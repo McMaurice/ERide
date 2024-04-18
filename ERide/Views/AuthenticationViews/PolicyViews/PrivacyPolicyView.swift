@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PrivacyPolicyView: View {
-    @State private var privacyPolicy = PrivacyPolicy(heading: "", content1: "", content2: "", content3: "", content4: "")
-
+    let privacyPolicy: PrivacyPolicy = Bundle.main.decode("privacyPolicy.json")
+    
     let email = Text("macmauriceosuji@gmail.com").foregroundColor(.blue)
     
     var body: some View {
@@ -49,9 +49,7 @@ struct PrivacyPolicyView: View {
                 .padding()
             }
             .navigationBarTitle("Privacy Policy")
-            .onAppear {
-                privacyPolicy = JSONDecoderHelper.decode(fileName: "privacyPolicy", fileExtension: "json", type: PrivacyPolicy.self) ?? privacyPolicy
-            }
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

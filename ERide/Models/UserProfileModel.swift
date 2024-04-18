@@ -21,10 +21,15 @@ struct UserPrimaryModels {
 }
 
 struct UserSecondaryModel {
+    var otherName: String
     var userName: String
+    var address: String
+    var PhoneNumber: String
     var profilePicture: UIImage
-    let age: Int
-    var hasDriversLicense: Bool
+    var driverLicense: UIImage
+    var dateOfBirth: Date
+    var age = 18
+    var hasDriverLicense: Bool
     var isVerified: Bool
     var rating: Int
 }

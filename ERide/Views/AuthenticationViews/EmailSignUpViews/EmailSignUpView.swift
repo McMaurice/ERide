@@ -54,6 +54,7 @@ struct EmailSignUpView: View {
                     do {
                         try await authenticationViewModel.signUpWithEmail()
                         authenticationViewModel.showAuthenticationView = false
+                        authenticationViewModel.newUser = true
                         return
                     } catch {
                         

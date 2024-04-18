@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CookiePolicyView: View {
-    @State private var cookiePolicy = CookiePolicy(policy: "", what_are_cookies: "", how_we_use_cookies: "", your_choices_regarding_cookies: "", third_party_cookies: "", changes_to_this_cookie_policy: "", contact_us: "")
-
+    let cookiePolicy: CookiePolicy = Bundle.main.decode("cookiePolicy.json")
+    
     let email = Text("macmauriceosuji@gmail.com").foregroundColor(.blue)
     
     var body: some View {
@@ -63,9 +63,6 @@ struct CookiePolicyView: View {
                 .padding()
             }
             .navigationBarTitle("Cookie Policy")
-            .onAppear {
-                cookiePolicy = JSONDecoderHelper.decode(fileName: "cookiePolicy", fileExtension: "json", type: CookiePolicy.self) ?? cookiePolicy
-            }
         }
     }
 }
