@@ -18,7 +18,7 @@ struct PhoneDropDownView: View {
     @State var presentSheet = false
     @FocusState private var keyIsFocused: Bool
     
-    @Binding var PhoneNumber: String
+    @Binding var phoneNumber: String
     
     let countries: [CountryDataModel] = Bundle.main.decode("countryData.json")
     
@@ -96,13 +96,13 @@ struct PhoneDropDownView: View {
         }
     }
     func completeNumber() {
-        PhoneNumber = countryCode + " " + mobPhoneNumber
+        phoneNumber = countryCode + " " + mobPhoneNumber
     }
 }
 
 struct PhoneDropDownView_Previews: PreviewProvider {
     static var previews: some View {
-        PhoneDropDownView(PhoneNumber: .constant(""))
+        PhoneDropDownView(phoneNumber: .constant(""))
     }
 }
 

@@ -78,3 +78,15 @@ struct CleanListModifier: ViewModifier {
             .listRowBackground(Color.clear)
     }
 }
+
+struct FooterModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundColor(.red)
+            .modifier(FormSubTitleModifier())
+            .padding(.top, -15)
+    }
+}
+    

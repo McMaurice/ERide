@@ -27,6 +27,9 @@
 		EA3B3E462BC089F700038B71 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E452BC089F700038B71 /* UserViewModel.swift */; };
 		EA3F10492BB7860100DFD256 /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */; };
 		EA3F104B2BB7861600DFD256 /* ConfirmPasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */; };
+		EA418DB32BDACD4200D0A879 /* DisplayPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA418DB22BDACD4200D0A879 /* DisplayPictureView.swift */; };
+		EA418DB52BDAD1FB00D0A879 /* DriversLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA418DB42BDAD1FB00D0A879 /* DriversLicenseView.swift */; };
+		EA418DB72BDAD33700D0A879 /* PrimaryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA418DB62BDAD33700D0A879 /* PrimaryDetailsView.swift */; };
 		EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF3172BB8BEC700665C3D /* SignInView.swift */; };
 		EA4FF31C2BB8CA8000665C3D /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */; };
 		EA5F062C2BB6D6120068636F /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F062B2BB6D6120068636F /* GlobalConstants.swift */; };
@@ -99,6 +102,9 @@
 		EA3B3E452BC089F700038B71 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
 		EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordFieldView.swift; sourceTree = "<group>"; };
+		EA418DB22BDACD4200D0A879 /* DisplayPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPictureView.swift; sourceTree = "<group>"; };
+		EA418DB42BDAD1FB00D0A879 /* DriversLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversLicenseView.swift; sourceTree = "<group>"; };
+		EA418DB62BDAD33700D0A879 /* PrimaryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryDetailsView.swift; sourceTree = "<group>"; };
 		EA4FF3172BB8BEC700665C3D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		EA4FF31B2BB8CA8000665C3D /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		EA5F062B2BB6D6120068636F /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
@@ -242,6 +248,19 @@
 			path = EmailSignUpViews;
 			sourceTree = "<group>";
 		};
+		EA418DB12BDABD4300D0A879 /* ProfileSetUp */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F062F2BB6E7A10068636F /* EditProfileView.swift */,
+				EA9713752BD087AF00F7DDCE /* PhoneDropDownView.swift */,
+				EA418DB62BDAD33700D0A879 /* PrimaryDetailsView.swift */,
+				EA9713772BD0EC5400F7DDCE /* DatePickers.swift */,
+				EA418DB22BDACD4200D0A879 /* DisplayPictureView.swift */,
+				EA418DB42BDAD1FB00D0A879 /* DriversLicenseView.swift */,
+			);
+			path = ProfileSetUp;
+			sourceTree = "<group>";
+		};
 		EA4FF31A2BB8CA3600665C3D /* LogInViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,11 +383,9 @@
 			isa = PBXGroup;
 			children = (
 				EAD65FED2BB9392D00D53AD6 /* SecuritySettingsView.swift */,
-				EA5F062F2BB6E7A10068636F /* EditProfileView.swift */,
 				EA9368A92BCD4CF200119B27 /* NotificationPreferencesView.swift */,
 				EA9368AB2BCD4F8E00119B27 /* PrivacySettingsView.swift */,
-				EA9713772BD0EC5400F7DDCE /* DatePickers.swift */,
-				EA9713752BD087AF00F7DDCE /* PhoneDropDownView.swift */,
+				EA418DB12BDABD4300D0A879 /* ProfileSetUp */,
 			);
 			path = SettingsViews;
 			sourceTree = "<group>";
@@ -523,6 +540,7 @@
 				EA2D2A5D2BC7DCD1003AAF83 /* HomeView.swift in Sources */,
 				EA5F06352BB6EF7E0068636F /* AuthenticationViewModel.swift in Sources */,
 				EA2D2A4C2BC7D662003AAF83 /* AccountView.swift in Sources */,
+				EA418DB52BDAD1FB00D0A879 /* DriversLicenseView.swift in Sources */,
 				EABBD4532BB5642600BFDC06 /* AuthenticationView.swift in Sources */,
 				EA3B3E442BC0810700038B71 /* CarRentalModels.swift in Sources */,
 				EABBD4572BB5652800BFDC06 /* FirebaseAuthenticationManger.swift in Sources */,
@@ -544,6 +562,7 @@
 				EA2D2A522BC7D6C5003AAF83 /* PublishingView.swift in Sources */,
 				EA9713762BD087AF00F7DDCE /* PhoneDropDownView.swift in Sources */,
 				EA9368A72BCD4BDD00119B27 /* ContactSupportView.swift in Sources */,
+				EA418DB72BDAD33700D0A879 /* PrimaryDetailsView.swift in Sources */,
 				EA9368B02BCD66F700119B27 /* ActiveRentalsView.swift in Sources */,
 				EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */,
 				EA3B3E462BC089F700038B71 /* UserViewModel.swift in Sources */,
@@ -551,6 +570,7 @@
 				EA9368AC2BCD4F8E00119B27 /* PrivacySettingsView.swift in Sources */,
 				EA2D2A4E2BC7D678003AAF83 /* FeedsView.swift in Sources */,
 				EA2CF44A2BBE9EA800CA0579 /* EmailFieldView.swift in Sources */,
+				EA418DB32BDACD4200D0A879 /* DisplayPictureView.swift in Sources */,
 				EA72AEA82BCFB45300DA226D /* AccountHeaderView.swift in Sources */,
 				EA3B3E422BC07A9C00038B71 /* UserProfileModel.swift in Sources */,
 				EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */,

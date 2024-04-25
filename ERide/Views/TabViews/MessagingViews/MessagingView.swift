@@ -9,7 +9,17 @@ import SwiftUI
 
 struct MessagingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVStack {
+                ForEach(0..<20) { index in
+                    RoundedRectangle(cornerRadius: 25.0)
+                        .fill(Color.white)
+                        .frame(width: 200, height: 150)
+                        .shadow(radius: 10)
+                        .padding()
+                }
+            }
+        }
     }
 }
 
