@@ -25,8 +25,8 @@ struct UserSecondaryModel {
     var userName: String
     var address: String
     var PhoneNumber: String
-    var profilePicture: UIImage
-    var driverLicense: UIImage
+    var profilePicture: UIImage?
+    var driverLicense: UIImage?
     var dateOfBirth: Date
     var age = 18
     var hasDriverLicense: Bool

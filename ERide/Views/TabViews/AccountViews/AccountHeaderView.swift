@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AccountHeaderView: View {
+    @ObservedObject var userViewModel: UserViewModel
+    
     var body: some View {
         VStack {
             VStack(spacing: 2) {
@@ -16,10 +18,16 @@ struct AccountHeaderView: View {
                         .fill(Color.clear)
                         .frame(width: 150, height: 150)
                         .overlay {
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(4)
+                            if userViewModel.profilePicture != nil {
+                                Image(uiImage: userViewModel.profilePicture!)
+                                    .resizable()
+                                    .scaledToFill()
+                            } else {
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .padding()
+                            }
                         }
                     
                     HStack(spacing: 50) {
@@ -66,6 +74,6 @@ struct AccountHeaderView: View {
 
 struct AccountHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountHeaderView()
+        AccountHeaderView(userViewModel: UserViewModel())
     }
 }

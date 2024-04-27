@@ -10,7 +10,7 @@ import SwiftUI
 struct MessagingView: View {
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyHStack {
                 ForEach(0..<20) { index in
                     RoundedRectangle(cornerRadius: 25.0)
                         .fill(Color.white)

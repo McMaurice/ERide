@@ -17,7 +17,6 @@ struct EditProfileView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 DisplayPictureView()
-                
                 VStack {
                     //MARK: PRIMARY DETAILS (ONE TIME CHANGE)
                     PrimaryDetailsView()
@@ -90,15 +89,14 @@ struct EditProfileView: View {
                                     .modifier(FooterModifier())
                             }
                         }
-
-                        DriversLicenseView(driversLicense: $userViewModel.driverLicense, licenseIsEmpty: $userViewModel.driversLicenseIsEmpty)
+                        DriversLicenseView()
                     }
                     Button {
                         userViewModel.phoneNumber = number
                         userViewModel.checkEntryDetails()
                         authenticationViewModel.newUser = false
                     } label: {
-                        Text("Submit")
+                        Text("Update Profile")
                             .modifier(LongButtonModifier())
                     }
                     .padding(.top)

@@ -13,7 +13,7 @@ struct AccountView: View {
     
     var body: some View {
         NavigationStack {
-            AccountHeaderView()
+            AccountHeaderView(userViewModel: userViewModel)
             List {
                 Section {
                     ForEach(userViewModel.userDetails.indices, id: \.self) { index in

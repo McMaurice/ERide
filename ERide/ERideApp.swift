@@ -15,7 +15,8 @@ struct ERideApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootMenuView()
+            //ContentView()
                 .environmentObject(authenticationViewModel)
         }
     }

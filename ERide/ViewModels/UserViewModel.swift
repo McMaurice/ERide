@@ -16,20 +16,19 @@ class UserViewModel: ObservableObject {
     @Published var userName = ""
     @Published var address = ""
     @Published var phoneNumber = ""
-    @Published var profilePicture = UIImage(systemName: "person.fill")
-    @Published var driverLicense = ""
+    @Published var profilePicture: UIImage? 
+    @Published var driverLicense: UIImage? 
     @Published var dateOfBirth = Date()
     @Published var age = 18
-    @Published var hasDriverLicense = false
-    @Published var isVerified = false
     @Published var rating = 3
     
+    @Published var isVerified = false
     @Published var familyNameIsEmpty = false
     @Published var givenNameIsEmpty = false
     @Published var usernameIsNotValid = false
     @Published var numberIsEmpty = false
     @Published var addressIsEmpty = false
-    @Published var driversLicenseIsEmpty = false
+    @Published var hasDriversLicense = false
     
     @Published var detailsIcon = ["","envelope","phone.arrow.down.left","house"]
     @Published var eRideOptions = ["Fund Wallet","Active Rentals","Contact Support"]
@@ -61,8 +60,8 @@ class UserViewModel: ObservableObject {
         if phoneNumber.count < 5 {
            numberIsEmpty = true
         }
-        if driverLicense .isEmpty {
-           driversLicenseIsEmpty = true
+        if driverLicense != nil {
+           hasDriversLicense = true
         }
         if address.isEmpty {
            addressIsEmpty = true
