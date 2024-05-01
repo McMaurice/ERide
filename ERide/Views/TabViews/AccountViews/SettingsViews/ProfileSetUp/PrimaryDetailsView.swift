@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct PrimaryDetailsView: View {
-    @StateObject private var userViewModel = UserViewModel()
+    @EnvironmentObject var accountViewModel: AccountViewModel
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(userViewModel.userPrimaryModels.email)
+            Text(accountViewModel.accountDetailsModel.email)
             
             Section {
                 ZStack {
-                    TextField("Family Name", text: $userViewModel.userPrimaryModels.familyName)
+                    TextField("Family Name", text: $accountViewModel.accountDetailsModel.familyName)
                         .modifier(PlaceHolderModifier())
-                    if !userViewModel.userPrimaryModels.familyName.isEmpty {
+                    if !accountViewModel.accountDetailsModel.familyName.isEmpty {
                         HStack {
                             Spacer()
                             Text("Family Name")
@@ -28,7 +28,7 @@ struct PrimaryDetailsView: View {
                     }
                 }
             } footer: {
-                if userViewModel.familyNameIsEmpty {
+                if accountViewModel.familyNameIsEmpty {
                     Text("Please enter family name")
                         .modifier(FooterModifier())
                 }
@@ -36,9 +36,9 @@ struct PrimaryDetailsView: View {
             
             Section {
                 ZStack {
-                    TextField("Given Name", text: $userViewModel.userPrimaryModels.givenName)
+                    TextField("Given Name", text: $accountViewModel.accountDetailsModel.givenName)
                         .modifier(PlaceHolderModifier())
-                    if !userViewModel.userPrimaryModels.givenName.isEmpty {
+                    if !accountViewModel.accountDetailsModel.givenName.isEmpty {
                         HStack {
                             Spacer()
                             Text("Given Name")
@@ -48,7 +48,7 @@ struct PrimaryDetailsView: View {
                     }
                 }
             } footer: {
-                if userViewModel.givenNameIsEmpty {
+                if accountViewModel.givenNameIsEmpty {
                     Text("Please enter given name")
                         .modifier(FooterModifier())
                 }
@@ -57,9 +57,9 @@ struct PrimaryDetailsView: View {
     }
 }
 
-
 struct PrimaryDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         PrimaryDetailsView()
+            .environmentObject(AccountViewModel(accountDetailsModel: AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 3)))
     }
 }

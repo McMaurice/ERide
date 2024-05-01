@@ -24,13 +24,17 @@ extension AppleAuthenticationViewModel: ASAuthorizationControllerDelegate {
         
         let tokens = AppleSignInResultModel(token: idTokenString, nonce: nonce)
         
+        
+        
         //MARK: GET USERS DETAILS HERE
-        let userProfileViewModel = UserViewModel()
         if let email = appleIDCredential.email,
            let familyName = appleIDCredential.fullName?.familyName,
            let givenName = appleIDCredential.fullName?.givenName {
             
-            userProfileViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
+            let accountDetailsModel = AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", profilePicture: nil, driverLicense: nil, dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 0)
+            
+            let accountViewModel = AccountViewModel(accountDetailsModel: accountDetailsModel)
+            accountViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
             
         } else {
             print("User has no details")

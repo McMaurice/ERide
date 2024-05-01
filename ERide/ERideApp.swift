@@ -12,12 +12,14 @@ import Firebase
 struct ERideApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var authenticationViewModel: AuthenticationViewModel = AuthenticationViewModel()
+    @StateObject var accountDetailsModel: AccountViewModel = AccountViewModel(accountDetailsModel: AccountDetailsModel(email: "example@gmail.com", familyName: "Taylor", givenName: "Swift", otherName: "", userName: "", address: "", phoneNumber: "", dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 0))
     
     var body: some Scene {
         WindowGroup {
-            RootMenuView()
-            //ContentView()
+           // RootMenuView()
+            ContentView()
                 .environmentObject(authenticationViewModel)
+                .environmentObject(accountDetailsModel)
         }
     }
 }

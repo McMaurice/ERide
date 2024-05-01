@@ -10,12 +10,12 @@ import PhotosUI
 
 struct DisplayPictureView: View {
     @State private var selectedPhoto: PhotosPickerItem? = nil
-    @StateObject private var userViewModel = UserViewModel()
+    @Binding var profilePicture: UIImage?
     
     var body: some View {
         VStack {
-            if userViewModel.profilePicture != nil {
-                Image(uiImage: userViewModel.profilePicture!)
+            if profilePicture != nil {
+                Image(uiImage: profilePicture!)
                     .resizable()
                     .scaledToFill()
             } else {
@@ -47,7 +47,7 @@ struct DisplayPictureView: View {
                 do {
                     if let data = try await selectedPhoto?.loadTransferable(type: Data.self) {
                         if let uiImage = UIImage(data: data) {
-                            userViewModel.profilePicture = uiImage
+                            profilePicture = uiImage
                         }
                     }
                 } catch {
@@ -61,6 +61,6 @@ struct DisplayPictureView: View {
 
 struct DisplayPictureView_Previews: PreviewProvider {
     static var previews: some View {
-        DisplayPictureView()
+        DisplayPictureView(profilePicture: .constant(UIImage(systemName: "person")))
     }
 }

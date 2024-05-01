@@ -22,9 +22,9 @@
 		EA2D2A5D2BC7DCD1003AAF83 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D2A5C2BC7DCD1003AAF83 /* HomeView.swift */; };
 		EA2D2A5F2BC7DD32003AAF83 /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D2A5E2BC7DD32003AAF83 /* MessagingView.swift */; };
 		EA3B3E3F2BC060FF00038B71 /* AppleAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E3E2BC060FF00038B71 /* AppleAuthenticationViewModel.swift */; };
-		EA3B3E422BC07A9C00038B71 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E412BC07A9C00038B71 /* UserProfileModel.swift */; };
+		EA3B3E422BC07A9C00038B71 /* AccountDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E412BC07A9C00038B71 /* AccountDetailsModel.swift */; };
 		EA3B3E442BC0810700038B71 /* CarRentalModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E432BC0810700038B71 /* CarRentalModels.swift */; };
-		EA3B3E462BC089F700038B71 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E452BC089F700038B71 /* UserViewModel.swift */; };
+		EA3B3E462BC089F700038B71 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B3E452BC089F700038B71 /* AccountViewModel.swift */; };
 		EA3F10492BB7860100DFD256 /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */; };
 		EA3F104B2BB7861600DFD256 /* ConfirmPasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */; };
 		EA418DB32BDACD4200D0A879 /* DisplayPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA418DB22BDACD4200D0A879 /* DisplayPictureView.swift */; };
@@ -97,9 +97,9 @@
 		EA2D2A5C2BC7DCD1003AAF83 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EA2D2A5E2BC7DD32003AAF83 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
 		EA3B3E3E2BC060FF00038B71 /* AppleAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationViewModel.swift; sourceTree = "<group>"; };
-		EA3B3E412BC07A9C00038B71 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
+		EA3B3E412BC07A9C00038B71 /* AccountDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsModel.swift; sourceTree = "<group>"; };
 		EA3B3E432BC0810700038B71 /* CarRentalModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRentalModels.swift; sourceTree = "<group>"; };
-		EA3B3E452BC089F700038B71 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		EA3B3E452BC089F700038B71 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		EA3F10482BB7860100DFD256 /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
 		EA3F104A2BB7861600DFD256 /* ConfirmPasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordFieldView.swift; sourceTree = "<group>"; };
 		EA418DB22BDACD4200D0A879 /* DisplayPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPictureView.swift; sourceTree = "<group>"; };
@@ -328,9 +328,9 @@
 		EA89509E2B9F4B32008878AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EA3B3E412BC07A9C00038B71 /* AccountDetailsModel.swift */,
 				EA7CC1D42BC01CE2000711BD /* PolicyModels.swift */,
 				EA7CC1C52BBFD4C0000711BD /* AuthDataResultModel.swift */,
-				EA3B3E412BC07A9C00038B71 /* UserProfileModel.swift */,
 				EA3B3E432BC0810700038B71 /* CarRentalModels.swift */,
 				EA9713732BD0879500F7DDCE /* CountryDataModel.swift */,
 			);
@@ -351,7 +351,7 @@
 		EA8950A02B9F4B52008878AA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				EA3B3E452BC089F700038B71 /* UserViewModel.swift */,
+				EA3B3E452BC089F700038B71 /* AccountViewModel.swift */,
 				EA271D042B9F9C0B004B412C /* MapViewModel.swift */,
 				EA3B3E402BC076A100038B71 /* AuthenticationViewModel */,
 			);
@@ -565,14 +565,14 @@
 				EA418DB72BDAD33700D0A879 /* PrimaryDetailsView.swift in Sources */,
 				EA9368B02BCD66F700119B27 /* ActiveRentalsView.swift in Sources */,
 				EA4FF3182BB8BEC700665C3D /* SignInView.swift in Sources */,
-				EA3B3E462BC089F700038B71 /* UserViewModel.swift in Sources */,
+				EA3B3E462BC089F700038B71 /* AccountViewModel.swift in Sources */,
 				EA2D2A4A2BC7D42C003AAF83 /* RootMenuView.swift in Sources */,
 				EA9368AC2BCD4F8E00119B27 /* PrivacySettingsView.swift in Sources */,
 				EA2D2A4E2BC7D678003AAF83 /* FeedsView.swift in Sources */,
 				EA2CF44A2BBE9EA800CA0579 /* EmailFieldView.swift in Sources */,
 				EA418DB32BDACD4200D0A879 /* DisplayPictureView.swift in Sources */,
 				EA72AEA82BCFB45300DA226D /* AccountHeaderView.swift in Sources */,
-				EA3B3E422BC07A9C00038B71 /* UserProfileModel.swift in Sources */,
+				EA3B3E422BC07A9C00038B71 /* AccountDetailsModel.swift in Sources */,
 				EAD65FF12BB94AF300D53AD6 /* UserAgreementView.swift in Sources */,
 				EAD65FF32BB94B0800D53AD6 /* PrivacyPolicyView.swift in Sources */,
 				EAD65FF52BB94B1700D53AD6 /* CookiePolicyView.swift in Sources */,

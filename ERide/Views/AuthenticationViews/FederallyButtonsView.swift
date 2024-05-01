@@ -21,6 +21,8 @@ struct FederallyButtonsView: View {
                     .shadow(radius: 10)
                 signInButton(imageName: "facebook", buttonText: "Continue with Facebook", action: signInWithFacebook)
                     .shadow(radius: 10)
+                signInButton(imageName: "guest", buttonText: "Continue as Guest", action: signInAnonymosly)
+                    .shadow(radius: 10)
             }
             .foregroundColor(.white)
             .font(.system(size: 20, weight: .semibold, design: .rounded))
@@ -79,6 +81,18 @@ struct FederallyButtonsView: View {
    
     func signInWithFacebook() {
 
+    }
+    
+    func signInAnonymosly() {
+        Task {
+            do {
+                try await authenticationViewModel.signInAnonymously()
+                authenticationViewModel.showAuthenticationView = false
+                authenticationViewModel.newUser = true
+            } catch {
+               print(error)
+            }
+        }
     }
 }
 

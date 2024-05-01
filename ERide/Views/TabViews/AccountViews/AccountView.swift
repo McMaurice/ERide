@@ -9,26 +9,26 @@ import SwiftUI
 
 struct AccountView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
-    @ObservedObject var userViewModel = UserViewModel()
+    @EnvironmentObject var accountViewModel: AccountViewModel
     
     var body: some View {
         NavigationStack {
-            AccountHeaderView(userViewModel: userViewModel)
+            AccountHeaderView()
             List {
                 Section {
-                    ForEach(userViewModel.userDetails.indices, id: \.self) { index in
-                        HStack {
-                            Image(systemName: userViewModel.detailsIcon[index])
-                                .foregroundColor(.accentColor)
-                            Text(userViewModel.userDetails[index])
-                                .fontWeight(.semibold)
-                        }
-                    }
-                    .modifier(CleanListModifier())
+//                    ForEach(accountViewModel.userDetails.indices, id: \.self) { index in
+//                        HStack {
+//                            Image(systemName: accountViewModel.detailsIcon[index])
+//                                .foregroundColor(.accentColor)
+//                            Text(accountViewModel.userDetails[index])
+//                                .fontWeight(.semibold)
+//                        }
+ //                   }
+ //                   .modifier(CleanListModifier())
                 }
                 Section {
-                    ForEach(userViewModel.eRideOptions, id: \.self) { option in
-                        NavigationLink(destination: userViewModel.eRideOptionsdestinationView(for: option)) {
+                    ForEach(accountViewModel.eRideOptions, id: \.self) { option in
+                        NavigationLink(destination: accountViewModel.eRideOptionsdestinationView(for: option)) {
                             Text(option)
                         }
                     }
@@ -39,8 +39,8 @@ struct AccountView: View {
                 }
                 
                 Section {
-                    ForEach(userViewModel.settingsOptions, id: \.self) { option in
-                        NavigationLink(destination: userViewModel.settingsOptionsdestinationView(for: option)) {
+                    ForEach(accountViewModel.settingsOptions, id: \.self) { option in
+                        NavigationLink(destination: accountViewModel.settingsOptionsdestinationView(for: option)) {
                             Text(option)
                         }
                     }
@@ -48,18 +48,20 @@ struct AccountView: View {
                     
                     HStack {
                         Spacer()
-                        Button {
-                            Task {
-                                do {
-                                    try authenticationViewModel.signOut()
-                                    authenticationViewModel.showAuthenticationView = true
-                                } catch {
-                                    print(error)
+                        if authenticationViewModel.authUser?.isAnonymous == false {
+                            Button {
+                                Task {
+                                    do {
+                                        try authenticationViewModel.signOut()
+                                        authenticationViewModel.showAuthenticationView = true
+                                    } catch {
+                                        print(error)
+                                    }
                                 }
+                            } label: {
+                                Text("Log out")
+                                    .foregroundColor(.accentColor)
                             }
-                        } label: {
-                            Text("Log out")
-                                .foregroundColor(.accentColor)
                         }
                         Spacer()
                     }
@@ -73,6 +75,7 @@ struct AccountView: View {
             .listStyle(.plain)
             .navigationTitle("Account Management")
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear { authenticationViewModel.loadAuthUser() }
         }
     }
 }
@@ -81,5 +84,6 @@ struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
             .environmentObject(AuthenticationViewModel())
+            .environmentObject(AccountViewModel(accountDetailsModel: AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 3)))
     }
 }

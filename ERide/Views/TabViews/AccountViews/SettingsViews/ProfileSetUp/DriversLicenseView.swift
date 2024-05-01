@@ -11,15 +11,17 @@ import _PhotosUI_SwiftUI
 struct DriversLicenseView: View {
     
     @State private var selectedPhoto: PhotosPickerItem? = nil
-    @StateObject private var userViewModel = UserViewModel()
+    @Binding var driverLicense: UIImage?
+    @Binding var hasDriverLicense: Bool
+    @Binding var isVerified: Bool
     
     var body: some View {
         VStack {
             Rectangle()
                 .fill(Color.clear)
                 .overlay {
-                    if userViewModel.driverLicense != nil {
-                        Image(uiImage: userViewModel.driverLicense!)
+                    if driverLicense != nil {
+                        Image(uiImage: driverLicense!)
                             .resizable()
                             .scaledToFill()
                             .padding(50)
@@ -29,7 +31,7 @@ struct DriversLicenseView: View {
                         }
                     }
                 }
-                .frame(width: .infinity, height: 150)
+                .frame(height: 150)
                 .clipShape(Rectangle())
                 .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
                 .onChange(of: selectedPhoto) { result in
@@ -37,7 +39,9 @@ struct DriversLicenseView: View {
                         do {
                             if let data = try await selectedPhoto?.loadTransferable(type: Data.self) {
                                 if let uiImage = UIImage(data: data) {
-                                    userViewModel.driverLicense = uiImage
+                                    driverLicense = uiImage
+                                    hasDriverLicense = true
+                                    isVerified = true
                                 }
                             }
                         } catch {
@@ -47,11 +51,5 @@ struct DriversLicenseView: View {
                     }
                 }
         }
-    }
-}
-
-struct DriversLicenseView_Previews: PreviewProvider {
-    static var previews: some View {
-        DriversLicenseView()
     }
 }

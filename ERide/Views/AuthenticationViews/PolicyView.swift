@@ -17,7 +17,8 @@ struct PoliciesView: View {
     var body: some View {
         Section {
             VStack {
-                Text("By signing up, you agree to our \(userAgreementText), \(privacyPolicyText), and \(cookiePolicyText).")
+                Text("By signing up, you agree to our \(userAgreementText),")
+                Text("\(privacyPolicyText), and \(cookiePolicyText).")
 
             }
             .font(.subheadline.bold())

@@ -9,14 +9,25 @@ import SwiftUI
 
 struct EditProfileView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
-    @StateObject private var userViewModel = UserViewModel()
+    @EnvironmentObject var accountViewModel: AccountViewModel
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State private var otherName = ""
+    @State private var userName = ""
+    @State private var address = ""
+    @State private var phoneNumber = ""
+    @State private var age = 18
+    @State private var hasDriverLicense = false
+    @State private var isVerified = false
+    @State private var profilePicture: UIImage?
+    @State private var driverLicense: UIImage?
+    @State private var dateOfBirth = Calendar.current.date(byAdding: .year, value: -18, to: Date()) ?? Date()
     @State private var showAlert = false
-    @State private var number = ""
 
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                DisplayPictureView()
+                DisplayPictureView(profilePicture: $profilePicture)
                 VStack {
                     //MARK: PRIMARY DETAILS (ONE TIME CHANGE)
                     PrimaryDetailsView()
@@ -26,9 +37,9 @@ struct EditProfileView: View {
                     VStack(spacing: 20) {
                         Section {
                             ZStack {
-                                TextField("Other Name", text: $userViewModel.otherName)
+                                TextField("Other Name", text: $otherName)
                                     .modifier(PlaceHolderModifier())
-                                if !userViewModel.otherName.isEmpty {
+                                if !otherName.isEmpty {
                                     HStack {
                                         Spacer()
                                         Text("Other Name")
@@ -41,9 +52,9 @@ struct EditProfileView: View {
 
                         Section {
                             ZStack {
-                                TextField("Username", text: $userViewModel.userName)
+                                TextField("Username", text: $userName)
                                     .modifier(PlaceHolderModifier())
-                                if !userViewModel.userName.isEmpty {
+                                if !userName.isEmpty {
                                     HStack {
                                         Spacer()
                                         Text("Username")
@@ -53,18 +64,18 @@ struct EditProfileView: View {
                                 }
                             }
                         } footer: {
-                            if userViewModel.usernameIsNotValid {
+                            if accountViewModel.usernameIsNotValid {
                                 Text("Username should be up to 6 characters long and must include at least one number.")
                                     .modifier(FooterModifier())
                             }
                         }
 
                         Section {
-                            DatePickers(dateOfBirth: $userViewModel.dateOfBirth, age: $userViewModel.age)
-                            PhoneDropDownView(phoneNumber: $number)
+                            DatePickers(dateOfBirth: $dateOfBirth, age: $age)
+                            PhoneDropDownView(phoneNumber: $phoneNumber)
                                 .padding(.top, -15)
                         } footer: {
-                            if userViewModel.numberIsEmpty {
+                            if accountViewModel.numberIsEmpty {
                                 Text("Please enter your phone number")
                                     .modifier(FooterModifier())
                             }
@@ -72,9 +83,9 @@ struct EditProfileView: View {
 
                         Section {
                             ZStack {
-                                TextField("Address", text: $userViewModel.address)
+                                TextField("Address", text: $address)
                                     .modifier(PlaceHolderModifier())
-                                if !userViewModel.address.isEmpty {
+                                if !address.isEmpty {
                                     HStack {
                                         Spacer()
                                         Text("Address")
@@ -84,16 +95,19 @@ struct EditProfileView: View {
                                 }
                             }
                         } footer: {
-                            if userViewModel.addressIsEmpty {
+                            if accountViewModel.addressIsEmpty {
                                 Text("Please fill in your address")
                                     .modifier(FooterModifier())
                             }
                         }
-                        DriversLicenseView()
+                        DriversLicenseView(driverLicense: $driverLicense, hasDriverLicense: $hasDriverLicense, isVerified: $isVerified)
                     }
                     Button {
-                        userViewModel.phoneNumber = number
-                        userViewModel.checkEntryDetails()
+                        accountViewModel.checkEntryDetails(familyName: accountViewModel.accountDetailsModel.familyName, givenName: accountViewModel.accountDetailsModel.givenName, userName: userName, phoneNumber: phoneNumber, driverLicense: driverLicense, address: address)
+                        if accountViewModel.completedChecks == true {
+                            accountViewModel.updateSecondaryDetails(otherName: otherName, userName: userName, address: address, phoneNumber: phoneNumber, profilePicture: profilePicture, driverLicense: driverLicense, dateOfBirth: dateOfBirth, age: age, hasDriverLicense: hasDriverLicense, isVerified: isVerified)
+                           // authenticationViewModel.newUser = false
+                        }
                         authenticationViewModel.newUser = false
                     } label: {
                         Text("Update Profile")
@@ -114,6 +128,7 @@ struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileView()
             .environmentObject(AuthenticationViewModel())
+            .environmentObject(AccountViewModel(accountDetailsModel: AccountDetailsModel(email: "example@gmail.com", familyName: "Taylor", givenName: "Swift", otherName: "", userName: "", address: "", phoneNumber: "", dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 3)))
     }
 }
 

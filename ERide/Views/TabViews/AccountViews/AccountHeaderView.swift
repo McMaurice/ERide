@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountHeaderView: View {
-    @ObservedObject var userViewModel: UserViewModel
+    @EnvironmentObject var accountViewModel: AccountViewModel
     
     var body: some View {
         VStack {
@@ -18,8 +18,8 @@ struct AccountHeaderView: View {
                         .fill(Color.clear)
                         .frame(width: 150, height: 150)
                         .overlay {
-                            if userViewModel.profilePicture != nil {
-                                Image(uiImage: userViewModel.profilePicture!)
+                            if accountViewModel.accountDetailsModel.profilePicture != nil {
+                                Image(uiImage: accountViewModel.accountDetailsModel.profilePicture!)
                                     .resizable()
                                     .scaledToFill()
                             } else {
@@ -74,6 +74,7 @@ struct AccountHeaderView: View {
 
 struct AccountHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountHeaderView(userViewModel: UserViewModel())
+        AccountHeaderView()
+            .environmentObject(AccountViewModel(accountDetailsModel: AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 3)))
     }
 }

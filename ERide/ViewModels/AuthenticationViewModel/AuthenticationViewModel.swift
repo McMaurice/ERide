@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
-    
+    var googleAuthenticationViewModel = GoogleAuthenticationViewModel()
     @Published var newEmail = ""
     @Published var newPassword = ""
     @Published var email = ""
@@ -18,10 +18,10 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var passwordMatch = false
     @Published var showPassword = false
     @Published var emailIsGood = false
-    @Published var newUser = true
+    @Published var newUser = false
     @Published var newInput = true
     @Published var showAuthenticationView = true
-    
+    @Published var authUser: AuthDataResultModel? = nil
     @Published var authProviders: [AuthProviderOption] = []
     
     func loadAuthProviders() {
@@ -30,14 +30,20 @@ final class AuthenticationViewModel: ObservableObject {
         }
     }
     
+    func loadAuthUser() {
+        self.authUser = try? FirebaseAuthenticationManager.shared.getAuthenticatedUser()
+    }
+    
     func signUpWithEmail() async throws {
         guard !email.isEmpty, !password.isEmpty else {
             // add any alerts
             print("No email or password found")
             return
         }
-        let userProfileViewModel = UserViewModel()
-        userProfileViewModel.updateUserDetails(email: email, givenName: "", familyName: "")
+        let accountDetailsModel = AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", profilePicture: nil, driverLicense: nil, dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 0)
+        
+        let accountViewModel = AccountViewModel(accountDetailsModel: accountDetailsModel)
+        accountViewModel.updateUserDetails(email: email, givenName: "", familyName: "")
         try await FirebaseAuthenticationManager.shared.createUser(email: email, password: password)
     }
     
@@ -53,6 +59,10 @@ final class AuthenticationViewModel: ObservableObject {
     
     func signOut() throws {
         try FirebaseAuthenticationManager.shared.signOut()
+    }
+    
+    func deleteUser() async throws {
+        try await FirebaseAuthenticationManager.shared.deleteAcc()
     }
     
     func resetPassword() async throws {
@@ -82,7 +92,10 @@ final class AuthenticationViewModel: ObservableObject {
         
         try await FirebaseAuthenticationManager.shared.updateEmail(email: newEmail)
     }
- 
+    
+    func signInAnonymously() async throws {
+        try await FirebaseAuthenticationManager.shared.signInAnonymously()
+    }
 
     func isValidEmail(email: String) -> Bool {
         let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
@@ -95,4 +108,18 @@ final class AuthenticationViewModel: ObservableObject {
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
     }
+    
+    // MARK: ACCOUNTS TO EXISTING ACCOUNT
+    func linkEmailAccount(email: String, password: String) async throws {
+        self.authUser = try await FirebaseAuthenticationManager.shared.linkEmail(email: email, password: password)
+    }
+
+    func linkGoogleAccount() async throws {
+        self.authUser = try await FirebaseAuthenticationManager.shared.linkGoogle(tokens: googleAuthenticationViewModel.googleHelper())
+    }
+   
+    func linkAppleAccount() async throws {
+       //self.authUser = try await FirebaseAuthenticationManager.shared.linkApple(tokens: a)
+    }
+    
 }

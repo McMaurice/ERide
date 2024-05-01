@@ -34,6 +34,13 @@ final class FirebaseAuthenticationManager {
         try Auth.auth().signOut()
     }
     
+    func deleteAcc() async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+        try await user.delete()
+    }
+    
     // MARK: GETS THE SPECIFIC METHOD A USER SIGNS IN WITH
     func getProviders() throws -> [AuthProviderOption] {
         guard let providerData = Auth.auth().currentUser?.providerData else {
@@ -89,7 +96,7 @@ extension FirebaseAuthenticationManager {
     }
 }
 
-// MARK: FEDERALLY SIGN IN
+// MARK: SSO SIGN IN
 extension FirebaseAuthenticationManager {
     
     @discardableResult
@@ -108,5 +115,38 @@ extension FirebaseAuthenticationManager {
     func signInWithCredentials(credential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: credential)
         return AuthDataResultModel(user: authDataResult.user)
+    }
+}
+
+// MARK: ANONYMOUS SIGN IN
+extension FirebaseAuthenticationManager {
+    
+    @discardableResult
+    func signInAnonymously() async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signInAnonymously()
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    private func linkCredentials(credential: AuthCredential) async throws -> AuthDataResultModel {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+        let authDataResult = try await user.link(with: credential)
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    func linkEmail(email: String, password: String) async throws -> AuthDataResultModel {
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        return try await linkCredentials(credential: credential)
+    }
+    
+    func linkApple(tokens: AppleSignInResultModel) async throws -> AuthDataResultModel {
+        let credential = OAuthProvider.credential(withProviderID: AuthProviderOption.apple.rawValue, idToken: tokens.token, rawNonce: tokens.nonce)
+        return try await linkCredentials(credential: credential)
+    }
+
+    func linkGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await linkCredentials(credential: credential)
     }
 }

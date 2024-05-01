@@ -12,7 +12,7 @@ import GoogleSignInSwift
 @MainActor
 final class GoogleAuthenticationViewModel: ObservableObject {
     
-    func signInGoogle() async throws {
+    func googleHelper() async throws -> GoogleSignInResultModel {
         guard let topViewController = Utilities.shared.topViewController() else {
             throw URLError(.cannotFindHost)
         }
@@ -26,19 +26,25 @@ final class GoogleAuthenticationViewModel: ObservableObject {
         let accessToken = gIDSignInResul.user.accessToken.tokenString
         
         //MARK: GET USERS DETAILS HERE
-        let userProfileViewModel = UserViewModel()
         if let email = gIDSignInResul.user.profile?.email,
            let familyName = gIDSignInResul.user.profile?.familyName,
            let givenName = gIDSignInResul.user.profile?.givenName {
             
-            userProfileViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
+            let accountDetailsModel = AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", profilePicture: nil, driverLicense: nil, dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 0)
             
+            let accountViewModel = AccountViewModel(accountDetailsModel: accountDetailsModel)
+            accountViewModel.updateUserDetails(email: email, givenName: givenName, familyName: familyName)
+
         } else {
             print("User has no details")
         }
         
-        let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
-        
-        try await FirebaseAuthenticationManager.shared.signInWithGoogle(tokens: tokens)
+        return GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
     }
+    
+    func signInGoogle() async throws {
+        try await FirebaseAuthenticationManager.shared.signInWithGoogle(tokens: googleHelper())
+    }
+    
+
 }

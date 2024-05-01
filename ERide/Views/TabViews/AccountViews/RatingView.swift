@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct RatingView: View {
-    @State private var rating = 3
-    
+    @EnvironmentObject var accountViewModel: AccountViewModel
+  
     var label = ""
     var maxRating = 5
     
@@ -27,16 +27,16 @@ struct RatingView: View {
             }
             ForEach(1..<maxRating + 1, id: \.self) { number in
                 image(for: number)
-                    .foregroundColor(number > rating ? offColor : onColor)
+                    .foregroundColor(number > accountViewModel.accountDetailsModel.rating ? offColor : onColor)
                     .onTapGesture {
-                        rating = number
+                        accountViewModel.accountDetailsModel.rating = number
                     }
             }
         }
     }
     
     func image(for number: Int) -> Image {
-        if number > rating {
+        if number > accountViewModel.accountDetailsModel.rating {
             return offImage ?? onImage
         } else {
             return onImage
@@ -47,6 +47,7 @@ struct RatingView: View {
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
         RatingView()
+            .environmentObject(AccountViewModel(accountDetailsModel: AccountDetailsModel(email: "", familyName: "", givenName: "", otherName: "", userName: "", address: "", phoneNumber: "", dateOfBirth: Date(), age: 18, hasDriverLicense: false, isVerified: false, rating: 3)))
     }
 }
 

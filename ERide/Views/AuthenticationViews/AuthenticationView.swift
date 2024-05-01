@@ -67,7 +67,6 @@ struct AuthenticationView: View {
                     .padding()
                 }
                 .padding()
-                .padding(.bottom, 50)
             }
             .onAppear {
                 withAnimation(.spring(response: 0.8, dampingFraction: 0.7, blendDuration: 0.4))  {
